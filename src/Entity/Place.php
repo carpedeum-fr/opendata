@@ -9,7 +9,7 @@ use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="PlaceRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  * @Gedmo\Loggable
  */
 class Place
