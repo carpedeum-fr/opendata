@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\TimestampableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -13,6 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Diocese
 {
+    use TimestampableTrait;
+
     /**
      * @var int The entity Id
      *

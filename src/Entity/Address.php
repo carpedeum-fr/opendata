@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use App\Entity\Traits\TimestampableTrait;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -12,6 +13,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Address
 {
+    use TimestampableTrait;
+
     /**
      * @var int The entity Id
      *
