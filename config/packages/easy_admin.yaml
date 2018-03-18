@@ -4,8 +4,13 @@ easy_admin:
         brand_color: '#00ff71'
         assets:
             favicon: '/favicon.png'
+    list:
+        max_results: 20
     entities:
         Place:
+            label: 'Église'
+            list:
+                title: "Liste des églises"
             class: App\Entity\Place
             form:
                 fields:
@@ -15,10 +20,53 @@ easy_admin:
                     - { property: 'streetAddress', label: 'Adresse' }
                     - { property: 'addressCountry', type: 'App\Type\CountryType', label: 'Pays' }
         Time:
+            label: 'Horaire'
             class: App\Entity\Time
         Diocese:
+            label: 'Diocèse'
+            list:
+                title: "Liste des diocèses"
+                fields: ['id', 'name', 'region', 'country']
+            form:
+                fields:
+                    - name
+                    - url
+                    - region
+                    - country
+                    - latitude
+                    - longitude
             class: App\Entity\Diocese
         Parish:
+            label: 'Paroisse'
+            list:
+                title: "Liste des paroisses"
+                fields: ['id', 'name', 'type', 'diocese']
+            form:
+                fields:
+                    - { property: 'name', label: 'Nom' }
+                    - type
+                    - { property: 'responsible', label: 'Responsable' }
+                    - description
+                    - email
+                    - phoneOriginal
+                    - phone
+                    - phoneNational
+                    - phoneInternational
+                    - url
+                    - commonName
+                    - picture
+                    - tags
+                    - { property: 'addresses', label: 'Adresses' }
             class: App\Entity\Parish
         Address:
+            label: 'Adresse'
+            list:
+                title: "Liste des adresses"
+                fields:
+                    - 'id'
+                    - { property: 'streetAddress', label: 'adresse' }
+                    - { property: 'postalCode', label: 'Code postal' }
+                    - { property: 'addressLocality', label: 'Ville' }
+                    - { property: 'origin', label: 'Origine' }
+                    - { property: 'parish', label: 'Paroisse' }
             class: App\Entity\Address
