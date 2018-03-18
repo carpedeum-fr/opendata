@@ -7,21 +7,6 @@ easy_admin:
     list:
         max_results: 20
     entities:
-        Place:
-            label: 'Église'
-            list:
-                title: "Liste des églises"
-            class: App\Entity\Place
-            form:
-                fields:
-                    - name
-                    - { property: 'addressLocality', label: 'Ville' }
-                    - { property: 'postalCode', label: 'Code postal' }
-                    - { property: 'streetAddress', label: 'Adresse' }
-                    - { property: 'addressCountry', type: 'App\Type\CountryType', label: 'Pays' }
-        Time:
-            label: 'Horaire'
-            class: App\Entity\Time
         Diocese:
             label: 'Diocèse'
             list:
@@ -58,6 +43,21 @@ easy_admin:
                     - tags
                     - { property: 'addresses', label: 'Adresses' }
             class: App\Entity\Parish
+        Place:
+            label: 'Église'
+            list:
+                title: "Liste des églises"
+            class: App\Entity\Place
+            form:
+                fields:
+                    - name
+                    - { property: 'addressLocality', label: 'Ville' }
+                    - { property: 'postalCode', label: 'Code postal' }
+                    - { property: 'streetAddress', label: 'Adresse' }
+                    - { property: 'addressCountry', type: 'App\Type\CountryType', label: 'Pays' }
+        Time:
+            label: 'Horaire'
+            class: App\Entity\Time
         Address:
             label: 'Adresse'
             list:
