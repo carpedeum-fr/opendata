@@ -11,11 +11,14 @@ easy_admin:
             label: 'Diocèse'
             list:
                 title: "Liste des diocèses"
-                fields: ['id', 'name', 'region', 'country']
+                fields: ['name', 'region', 'country']
+                sort: ['name', 'ASC']
             form:
                 fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                     - name
                     - url
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Géographie' }
                     - region
                     - country
                     - latitude
@@ -25,23 +28,28 @@ easy_admin:
             label: 'Paroisse'
             list:
                 title: "Liste des paroisses"
-                fields: ['id', 'name', 'type', 'diocese']
+                fields: ['name', 'type', 'diocese']
             form:
+                title: "Modifier une paroisses"
                 fields:
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Basic information' }
                     - { property: 'name', label: 'Nom' }
                     - type
-                    - { property: 'responsible', label: 'Responsable' }
-                    - description
-                    - email
-                    - phoneOriginal
-                    - phone
-                    - phoneNational
-                    - phoneInternational
-                    - url
                     - commonName
-                    - picture
+                    - description
+                    - { property: 'picture', type: 'url' }
                     - tags
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Contact' }
+                    - { property: 'responsible', label: 'Responsable' }
+                    - { property: 'email', type: 'email', type_options: { trim: true } }
+                    - { property: 'url', type: 'url' }
                     - { property: 'addresses', label: 'Adresses' }
+                    - { type: 'section', label: 'Numéro de téléphone', icon: 'phone',
+                                            help: 'Le même numéro, seul le format change !', css_class: 'danger' }
+                    - { property: 'phoneOriginal', type: 'tel' }
+                    - { property: 'phone', type: 'tel' }
+                    - { property: 'phoneNational', type: 'tel' }
+                    - { property: 'phoneInternational', type: 'tel' }
             class: App\Entity\Parish
         Place:
             label: 'Église'

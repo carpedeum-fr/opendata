@@ -6,6 +6,7 @@ use App\Entity\Traits\TimestampableTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use Symfony\Component\Intl\Intl;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -94,6 +95,11 @@ class Diocese
     public function getId(): ?int
     {
         return $this->id;
+    }
+
+    public function getCountry()
+    {
+        return Intl::getRegionBundle()->getCountryName($this->country);
     }
 
     public function __toString()
