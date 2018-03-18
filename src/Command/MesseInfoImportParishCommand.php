@@ -51,6 +51,11 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
             $output->writeln($diocese->name);
             $paroisseList = $this->client->request('GET', 'http://www.messes.info/api/v2/diocese/'.$diocese->code.'?userkey=test&format=json');
             foreach (json_decode($paroisseList->getBody(), true) as $paroisse){
+                if (!array_key_exists('alias', $paroisse)) {
+                    $output->write('!');
+                    continue;
+                }
+
                 $dbResult = $em->getRepository(Parish::class)->findOneByAlias($paroisse['alias']);
                 if ($dbResult) {
                     $output->write('.');
@@ -58,10 +63,6 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 }
 
                 $output->write('+');
-                if (!array_key_exists('alias', $paroisse)) {
-                    $output->writeln('<error>No alias!</error>');
-                    continue;
-                }
                 $parish = new Parish();
                 $parish->diocese = $diocese;
                 $parish->code = $paroisse['id'];
@@ -82,9 +83,9 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     try {
                         $phoneNumber = $phoneUtil->parse($paroisse['phone'], $diocese->country);
                     } catch (NumberParseException $e) {
-                        var_dump($e);
+                        $output->write('n');
                     }
-                    if ($phoneUtil->isValidNumber($phoneNumber)) {
+                    if (isset($phoneNumber) && $phoneUtil->isValidNumber($phoneNumber)) {
                         $parish->phone = $phoneUtil->format($phoneNumber, PhoneNumberFormat::E164);
                         $parish->phoneNational = $phoneUtil->format($phoneNumber, PhoneNumberFormat::NATIONAL);
                         $parish->phoneInternational = $phoneUtil->format($phoneNumber, PhoneNumberFormat::INTERNATIONAL);
@@ -106,8 +107,12 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 if (array_key_exists('street', $paroisse['address'])) {
                     $originalAddress->streetAddress = $paroisse['address']['street'];
                 }
-                $originalAddress->postalCode = $paroisse['address']['zipCode'];
-                $originalAddress->addressLocality = $paroisse['address']['city'];
+                if (array_key_exists('zipCode', $paroisse['address'])) {
+                    $originalAddress->postalCode = $paroisse['address']['zipCode'];
+                }
+                if (array_key_exists('city', $paroisse['address'])) {
+                    $originalAddress->addressLocality = $paroisse['address']['city'];
+                }
                 $originalAddress->addressCountry = $paroisse['address']['region'];
                 if (in_array('latLng', $paroisse['address'])) {
                     $originalAddress->latitude = $paroisse['address']['latLng']['latitude'];
@@ -122,14 +127,22 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 } else {
                     $location .= 'eglise ';
                 }
-                $location .= $paroisse['address']['zipCode'] . ' ' . $paroisse['address']['city'] . ' ' . $paroisse['address']['region'];
+                if (array_key_exists('zipCode', $paroisse['address'])) {
+                    $location .= $paroisse['address']['zipCode'] . ' ';
+                }
+                if (array_key_exists('city', $paroisse['address'])) {
+                    $location .= $paroisse['address']['city'];
+                }
+                $location .= $paroisse['address']['region'];
 
                 try {
                     $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
                     $cleanedAddress = new Address();
                     $cleanedAddress->parish = $parish;
                     $cleanedAddress->name = 'Donnée de MesseInfo traitée par Google Maps.';
-                    $cleanedAddress->addressCountry = $geoData->getCountry()->getCode();
+                    if ($geoData->getCountry()) {
+                        $cleanedAddress->addressCountry = $geoData->getCountry()->getCode();
+                    }
                     $cleanedAddress->addressLocality = $geoData->getLocality();
                     $cleanedAddress->postalCode = $geoData->getPostalCode();
                     $cleanedAddress->streetAddress = $geoData->getStreetNumber().' '.$geoData->getStreetName();
@@ -145,26 +158,4 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
             $em->flush();
         }
     }
-
-    /*
-     * $egliseList = $this->client->request('GET', 'http://www.messes.info/api/v2/lieux-par-communaute/'.$paroisse['alias'].'?userkey=test&format=json');
-                foreach (json_decode($egliseList->getBody(), true) as $eglise) {
-                    $place = new Place();
-                    if (array_key_exists('name', $eglise)) {
-                        $place->name = $eglise['name'];
-                    }
-                    if (array_key_exists('city', $eglise)) {
-                        $place->addressLocality = $eglise['city'];
-                    }
-                    if (array_key_exists('address', $eglise)) {
-                        $place->streetAddress = $eglise['address'];
-                    }
-                    if (array_key_exists('zipcode', $eglise)) {
-                        $place->postalCode = $eglise['zipcode'];
-                    }
-
-                    $em->persist($place);
-                }
-     */
-
 }
