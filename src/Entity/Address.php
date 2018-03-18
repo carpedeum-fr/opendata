@@ -36,7 +36,7 @@ class Address
      * @ORM\Column
      * @Gedmo\Versioned
      */
-    public $name;
+    public $origin;
 
 
     /**
@@ -121,6 +121,6 @@ class Address
 
     public function __toString()
     {
-        return $this->name;
+        return $this->origin.' : '.$this->streetAddress.' '.$this->postalCode.' '.$this->addressLocality;
     }
 }
