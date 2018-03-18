@@ -12,3 +12,9 @@ easy_admin:
                     - { property: 'addressCountry', type: 'App\Type\CountryType', label: 'Pays' }
         Time:
             class: App\Entity\Time
+        Diocese:
+            class: App\Entity\Diocese
+        Parish:
+            class: App\Entity\Parish
+        Address:
+            class: App\Entity\Address
