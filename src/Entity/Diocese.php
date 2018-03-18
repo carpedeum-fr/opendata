@@ -51,7 +51,7 @@ class Diocese
     /**
      * @var string Messe Info sector -> Google Maps country
      *
-     * @ORM\Column(nullable=true)
+     * @ORM\Column(type="string", length=2, nullable=true)
      * @Gedmo\Versioned
      */
     public $country;
@@ -67,7 +67,7 @@ class Diocese
     /**
      * @var string Messe Info sector -> Google Maps
      *
-     * @ORM\Column(nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @Gedmo\Versioned
      */
     public $latitude;
@@ -75,7 +75,7 @@ class Diocese
     /**
      * @var string Messe Info sector -> Google Maps
      *
-     * @ORM\Column(nullable=true)
+     * @ORM\Column(type="float", nullable=true)
      * @Gedmo\Versioned
      */
     public $longitude;

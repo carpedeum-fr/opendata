@@ -3,6 +3,7 @@
 namespace App\Command;
 
 use App\Entity\Diocese;
+use Geocoder\Exception\CollectionIsEmpty;
 use Geocoder\ProviderAggregator;
 use Geocoder\Query\GeocodeQuery;
 use GuzzleHttp\Client;
@@ -65,7 +66,11 @@ class MesseInfoImportDioceseCommand extends ContainerAwareCommand
 
                 $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
                 $diocese->country = $geoData->getCountry()->getCode();
-                $diocese->region = $geoData->getAdminLevels()->first()->getName();
+                try {
+                    $diocese->region = $geoData->getAdminLevels()->first()->getName();
+                } catch (CollectionIsEmpty $e) {
+                    $diocese->region = '';
+                }
                 $diocese->latitude = $geoData->getCoordinates()->getLatitude();
                 $diocese->longitude = $geoData->getCoordinates()->getLongitude();
             }
