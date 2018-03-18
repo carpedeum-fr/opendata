@@ -2,6 +2,9 @@
     "behat/transliterator": {
         "version": "1.2-dev"
     },
+    "clue/stream-filter": {
+        "version": "v1.4.0"
+    },
     "creof/doctrine2-spatial": {
         "version": "dev-master"
     },
@@ -83,6 +86,21 @@
     "gedmo/doctrine-extensions": {
         "version": "v2.4.x-dev"
     },
+    "geocoder-php/common-http": {
+        "version": "4.0.0"
+    },
+    "geocoder-php/google-maps-provider": {
+        "version": "4.2.0"
+    },
+    "geocoder-php/plugin": {
+        "version": "1.0.0"
+    },
+    "giggsey/libphonenumber-for-php": {
+        "version": "8.x-dev"
+    },
+    "giggsey/locale": {
+        "version": "1.4"
+    },
     "guzzlehttp/guzzle": {
         "version": "6.3-dev"
     },
@@ -103,6 +121,24 @@
     },
     "pagerfanta/pagerfanta": {
         "version": "1.0.x-dev"
+    },
+    "php-http/discovery": {
+        "version": "1.4.0"
+    },
+    "php-http/guzzle6-adapter": {
+        "version": "v1.1.1"
+    },
+    "php-http/httplug": {
+        "version": "v1.1.0"
+    },
+    "php-http/message": {
+        "version": "1.6.0"
+    },
+    "php-http/message-factory": {
+        "version": "v1.0.2"
+    },
+    "php-http/promise": {
+        "version": "v1.0.0"
     },
     "psr/cache": {
         "version": "1.0.1"
@@ -298,6 +334,18 @@
     },
     "twig/twig": {
         "version": "2.x-dev"
+    },
+    "willdurand/geocoder": {
+        "version": "4.2.0"
+    },
+    "willdurand/geocoder-bundle": {
+        "version": "5.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "5.0",
+            "ref": "b272ad4fbfcd45a20e7cbfdc4ad1b0e27a62fd3b"
+        }
     },
     "zendframework/zend-code": {
         "version": "3.3-dev"

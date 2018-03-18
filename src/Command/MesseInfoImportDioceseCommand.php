@@ -3,27 +3,39 @@
 namespace App\Command;
 
 use App\Entity\Diocese;
+use Geocoder\ProviderAggregator;
+use Geocoder\Query\GeocodeQuery;
+use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
 class MesseInfoImportDioceseCommand extends ContainerAwareCommand
 {
+    private $client;
+    private $provider;
+
+    public function __construct(ProviderAggregator $provider)
+    {
+        $this->client = new Client();
+        $this->provider = $provider;
+
+        // this is required due to parent constructor, which sets up name
+        parent::__construct();
+    }
+
     protected function configure()
     {
         $this
-            ->setName('import:messeinfo')
+            ->setName('import:messeinfo:diocese')
             ->setDescription('Import data using MesseInfo API.')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $client = new \GuzzleHttp\Client();
         $em = $this->getContainer()->get('doctrine')->getManager();
-
-        $dioceseList = $client->request('GET', 'https://www.messes.info/api/v2/dioceses/?format=json&userkey=test');
-        $dioceses = [];
+        $dioceseList = $this->client->request('GET', 'https://www.messes.info/api/v2/dioceses/?format=json&userkey=test');
 
         foreach (json_decode($dioceseList->getBody(), true) as $messeInfoDiocese)
         {
@@ -45,26 +57,17 @@ class MesseInfoImportDioceseCommand extends ContainerAwareCommand
 
             if (array_key_exists('sector', $messeInfoDiocese)) {
 
-                $googleApiQuery = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
                 if ('Dom' === $messeInfoDiocese['sector'] || 'Tom' === $messeInfoDiocese['sector']) {
-                    $googleApiQuery .= $messeInfoDiocese['name'];
+                    $location = $messeInfoDiocese['name'];
                 } else {
-                    $googleApiQuery .= $messeInfoDiocese['sector'] . ' France';
+                    $location = $messeInfoDiocese['sector'] . ' France';
                 }
-                $googleApiQuery .= '&key=AIzaSyDgSXYy-o41Q9I5cjPRYdLgO-JCSQpwsDw&language=fr';
 
-                $cleanedGeoData = $client->request('GET', $googleApiQuery);
-                $cleanedGeoDataJson = json_decode($cleanedGeoData->getBody(), true);
-                foreach ($cleanedGeoDataJson['results'][0]['address_components'] as $component) {
-                    if (in_array('country', $component['types'])) {
-                        $diocese->country = $component['short_name'];
-                    }
-                    if (in_array('administrative_area_level_1', $component['types'])) {
-                        $diocese->region = $component['long_name'];
-                    }
-                }
-                $diocese->latitude = $cleanedGeoDataJson['results'][0]['geometry']['location']['lat'];
-                $diocese->longitude = $cleanedGeoDataJson['results'][0]['geometry']['location']['lng'];
+                $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
+                $diocese->country = $geoData->getCountry()->getCode();
+                $diocese->region = $geoData->getAdminLevels()->first()->getName();
+                $diocese->latitude = $geoData->getCoordinates()->getLatitude();
+                $diocese->longitude = $geoData->getCoordinates()->getLongitude();
             }
 
             $em->persist($diocese);
