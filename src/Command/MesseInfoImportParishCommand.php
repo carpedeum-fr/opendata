@@ -109,9 +109,11 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 $originalAddress->postalCode = $paroisse['address']['zipCode'];
                 $originalAddress->addressLocality = $paroisse['address']['city'];
                 $originalAddress->addressCountry = $paroisse['address']['region'];
-                $originalAddress->latitude = $paroisse['address']['latLng']['latitude'];
-                $originalAddress->longitude = $paroisse['address']['latLng']['longitude'];
-                $originalAddress->zoom = $paroisse['address']['latLng']['zoom'];
+                if (in_array('latLng', $paroisse['address'])) {
+                    $originalAddress->latitude = $paroisse['address']['latLng']['latitude'];
+                    $originalAddress->longitude = $paroisse['address']['latLng']['longitude'];
+                    $originalAddress->zoom = $paroisse['address']['latLng']['zoom'];
+                }
                 $em->persist($originalAddress);
 
                 $location = '';
@@ -137,7 +139,7 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     $cleanedAddress->latitude = $geoData->getCoordinates()->getLatitude();
                     $em->persist($cleanedAddress);
                 } catch (CollectionIsEmpty $e) {
-                    $output->writeln('Nothing found for: '.$location);
+                    //$output->writeln('Nothing found for: '.$location);
                 }
             }
             $em->flush();

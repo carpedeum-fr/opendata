@@ -49,7 +49,7 @@ class Address
     /**
      * @var string The locality. For example, Mountain View.
      *
-     * @ORM\Column
+     * @ORM\Column(nullable=true)
      * @Gedmo\Versioned
      */
     public $addressLocality;
@@ -92,17 +92,15 @@ class Address
 
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      * @Gedmo\Versioned
-     * @Assert\NotBlank
      */
     public $latitude;
 
 
     /**
-     * @ORM\Column(type="float")
+     * @ORM\Column(type="float", nullable=true)
      * @Gedmo\Versioned
-     * @Assert\NotBlank
      */
     public $longitude;
 
