@@ -135,15 +135,6 @@ class Parish
     public $url;
 
     /**
-     * @var string Messe Info alias
-     *
-     * @ORM\Column
-     * @Gedmo\Versioned
-     * @Assert\NotBlank
-     */
-    public $communityType;
-
-    /**
      * @var string Messe Info common name
      *
      * @ORM\Column(nullable=true)
