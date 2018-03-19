@@ -119,6 +119,11 @@ class Address
         return $this->id;
     }
 
+    public function getCountry()
+    {
+        return Intl::getRegionBundle()->getCountryName($this->addressCountry);
+    }
+
     public function __toString()
     {
         return $this->origin.' : '.$this->streetAddress.' '.$this->postalCode.' '.$this->addressLocality;

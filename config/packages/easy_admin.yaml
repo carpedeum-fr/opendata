@@ -14,6 +14,7 @@ easy_admin:
                 fields: ['name', 'region', 'country']
                 sort: ['name', 'ASC']
             form:
+                title: "Modifier un diocèse"
                 fields:
                     - { type: 'group', css_class: 'col-sm-6', label: 'Information' }
                     - name
