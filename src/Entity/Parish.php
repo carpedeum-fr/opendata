@@ -33,6 +33,20 @@ class Parish
     public $addresses;
 
     /**
+     * @var Address
+     *
+     * @ORM\OneToOne(targetEntity="\App\Entity\Address")
+     */
+    public $addresseMesseInfo;
+
+    /**
+     * @var Address
+     *
+     * @ORM\OneToOne(targetEntity="\App\Entity\Address")
+     */
+    public $addresseGoogleMaps;
+
+    /**
      * @ORM\ManyToOne(targetEntity="\App\Entity\Diocese", inversedBy="parishes")
      */
     public $diocese;
@@ -160,6 +174,81 @@ class Parish
      * @Gedmo\Versioned
      */
     public $tags;
+
+    /**
+     * @var string The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
+     *
+     * @ORM\Column
+     * @Gedmo\Versioned
+     * @Assert\Choice(callback="getCountry")
+     */
+    public $addressCountry = 'FR';
+
+
+    /**
+     * @var string The locality. For example, Mountain View.
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $addressLocality;
+
+
+    /**
+     * @var string The region. For example, CA.
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $addressRegion;
+
+
+    /**
+     * @var string The postal code. For example, 94043.
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $postalCode;
+
+
+    /**
+     * @var string The street address. For example, 1600 Amphitheatre Pkwy.
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $streetAddress;
+
+
+    /**
+     * @var string The formatted street address. For example, 12 Rue de l'Église, 13290 Aix-en-Provence, France
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $formattedAddress;
+
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $latitude;
+
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $longitude;
+
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $zoom;
 
     public function getId(): ?int
     {

@@ -38,19 +38,24 @@ easy_admin:
                     - type
                     - commonName
                     - description
-                    - { property: 'picture', type: 'url' }
-                    - tags
                     - { type: 'group', css_class: 'col-sm-6', label: 'Contact' }
                     - { property: 'responsible', label: 'Responsable' }
                     - { property: 'email', type: 'email', type_options: { trim: true } }
                     - { property: 'url', type: 'url' }
-                    - { property: 'addresses', label: 'Adresses' }
                     - { type: 'section', label: 'Numéro de téléphone', icon: 'phone',
                                             help: 'Le même numéro, seul le format change !', css_class: 'danger' }
                     - { property: 'phoneOriginal', type: 'tel' }
                     - { property: 'phone', type: 'tel' }
                     - { property: 'phoneNational', type: 'tel' }
                     - { property: 'phoneInternational', type: 'tel' }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Adresse' }
+                    - { property: 'streetAddress', label: 'Adresse' }
+                    - { property: 'postalCode', label: 'Code postal' }
+                    - { property: 'addressLocality', label: 'Ville' }
+                    - { property: 'addresses', label: 'Adresses', type_options: { disabled: true } }
+                    - { type: 'group', css_class: 'col-sm-6', label: 'Autre' }
+                    - { property: 'picture', type: 'url' }
+                    - tags
             class: App\Entity\Parish
         Place:
             label: 'Église'
