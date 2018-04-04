@@ -29,6 +29,11 @@ class Address
      */
     public $parish;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Place", inversedBy="addresses")
+     */
+    public $place;
+
 
     /**
      * @var string The address name.

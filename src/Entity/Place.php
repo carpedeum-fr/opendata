@@ -35,6 +35,13 @@ class Place
     /**
      * @var ArrayCollection
      *
+     * @ORM\OneToMany(targetEntity="\App\Entity\Address", mappedBy="place")
+     */
+    public $addresses;
+
+    /**
+     * @var ArrayCollection
+     *
      * @ORM\OneToMany(targetEntity="\App\Entity\Time", mappedBy="place")
      */
     public $timetable;
@@ -47,6 +54,15 @@ class Place
      * @Assert\NotBlank
      */
     public $name = '';
+
+    /**
+     * @var string Slug of the place name
+     *
+     * @ORM\Column
+     * @Gedmo\Slug(fields={"name", "addressLocality"})
+     * @Assert\NotBlank
+     */
+    public $slug = '';
 
     /**
      * @var string The country. For example, USA. You can also provide the two-letter ISO 3166-1 alpha-2 country code.
@@ -95,6 +111,52 @@ class Place
      * @Assert\NotBlank
      */
     public $streetAddress;
+
+
+    /**
+     * @var string The formatted street address. For example, 12 Rue de l'Église, 13290 Aix-en-Provence, France
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $formattedAddress;
+
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $latitude;
+
+
+    /**
+     * @ORM\Column(type="float", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $longitude;
+
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $zoom;
+
+    /**
+     * @var string Messe Info picture
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $picture;
+
+    /**
+     * @var string Messe Info alias
+     *
+     * @ORM\Column(nullable=true)
+     * @Gedmo\Versioned
+     */
+    public $type;
 
     public function getId(): ?int
     {
