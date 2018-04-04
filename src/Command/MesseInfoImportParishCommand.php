@@ -103,7 +103,7 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
 
                 $originalAddress = new Address();
                 $originalAddress->parish = $parish;
-                $originalAddress->name = 'Donnée importée de MesseInfo.';
+                $originalAddress->origin = 'MesseInfo';
                 if (array_key_exists('street', $paroisse['address'])) {
                     $originalAddress->streetAddress = $paroisse['address']['street'];
                 }
@@ -121,6 +121,7 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 }
                 $em->persist($originalAddress);
 
+                // Query Google Maps API for a nice address
                 $location = '';
                 if (array_key_exists('street', $paroisse['address'])) {
                     $location .= $paroisse['address']['street'] . ' ';
@@ -139,7 +140,7 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
                     $cleanedAddress = new Address();
                     $cleanedAddress->parish = $parish;
-                    $cleanedAddress->name = 'Donnée de MesseInfo traitée par Google Maps.';
+                    $cleanedAddress->origin = 'Google Maps';
                     if ($geoData->getCountry()) {
                         $cleanedAddress->addressCountry = $geoData->getCountry()->getCode();
                     }
