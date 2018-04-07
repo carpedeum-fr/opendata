@@ -30,6 +30,7 @@ easy_admin:
             list:
                 title: "Liste des paroisses"
                 fields: ['name', 'type', 'diocese']
+                sort: ['name', 'ASC']
             form:
                 title: "Modifier une paroisses"
                 fields:
@@ -62,6 +63,8 @@ easy_admin:
             list:
                 title: "Liste des églises"
                 fields: ['name', 'streetAddress', 'postalCode', 'addressLocality', 'parish']
+                actions: ['show']
+                sort: ['name', 'ASC']
             class: App\Entity\Place
             form:
                 fields:
@@ -73,11 +76,35 @@ easy_admin:
                     - latitude
                     - longitude
                     - { property: 'picture', type: 'url' }
+            show:
+                title: "Église"
+                fields:
+                    - name
+                    - { property: 'streetAddress', label: 'Adresse' }
+                    - { property: 'postalCode', label: 'Code postal' }
+                    - { property: 'addressLocality', label: 'Ville' }
+                    - latitude
+                    - longitude
+                    - { property: 'picture', type: 'image' }
+                    - parish
+                    - timetable
         Time:
             label: 'Horaire'
             list:
                 title: "Liste des horaires"
                 fields: ['id', 'datetime', 'length', 'tags', 'place']
+                sort: ['datetime', 'ASC']
+            form:
+                title: "Modifier un horaire"
+                fields:
+                    - { property: 'datetime', label: 'Date', type_options: { widget: 'single_text' } }
+                    - { property: 'length', label: 'Durée' }
+                    - { property: 'isValid', label: 'Valide' }
+                    - { property: 'isActive', label: 'Actif' }
+                    - tags
+                    - { property: 'timeType', label: "Type d'horaire", type: 'choice', type_options: { choices: {'Semaine': 'WEEKMASS', 'Heures': 'HOURSLITURGY', 'Autre': 'OTHERCELEBRATION', 'Fête': 'CELEBRATION', 'Dimanche': 'SUNDAYMASS'} } }
+                    - { property: 'celebrationType', label: 'Type de célébration', type: 'choice', type_options: { choices: {'Messe': 'MASS', 'Autre': 'OTHERCELEBRATION', 'Messe de semaine': 'WEEKMASS'} } }
+                    - { property: 'recurrenceCategory', label: 'Régularité', type: 'choice', type_options: { choices: {'Régulier': 'REGULAR', 'Choisir une date (?)': 'SELECT_DATE', 'Unique': 'UNIQUE'} } }
             class: App\Entity\Time
         Address:
             label: 'Adresse'

@@ -119,6 +119,6 @@ class Time
 
     public function __toString()
     {
-        return $this->datetime->format('D d F, G\hi');
+        return $this->datetime->format('l d F, G\hi');
     }
 }

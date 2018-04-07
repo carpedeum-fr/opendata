@@ -51,13 +51,10 @@ class MesseInfoImportTimetableCommand extends ContainerAwareCommand
             $io->progressStart(count($timetableArray));
 
             foreach ($timetableArray as $horaire) {
-                $dbResult = $em->getRepository(Time::class)->findOneByMesseInfoId($horaire['id']);
-                if ($dbResult) {
-                    $io->progressAdvance();
-                    continue;
+                $time = $em->getRepository(Time::class)->findOneByMesseInfoId($horaire['id']);
+                if (!$time) {
+                    $time = new Time();
                 }
-
-                $time = new Time();
 
                 $time->messeInfoId = $horaire['id'];
                 $time->place = $place;
@@ -74,17 +71,17 @@ class MesseInfoImportTimetableCommand extends ContainerAwareCommand
                 if (array_key_exists('valid', $horaire)) {
                     $time->isValid = $horaire['valid'];
                 }
-                if (array_key_exists('updatedate', $horaire)) {
-                    $time->setUpdatedAt(new \DateTime($horaire['updatedate']));
+                if (array_key_exists('updateDate', $horaire)) {
+                    $time->setUpdatedAt(new \DateTime($horaire['updateDate']));
                 }
-                if (array_key_exists('celebrationtimetype', $horaire)) {
-                    $time->celebrationType = $horaire['celebrationtimetype'];
+                if (array_key_exists('celebrationTimeType', $horaire)) {
+                    $time->celebrationType = $horaire['celebrationTimeType'];
                 }
-                if (array_key_exists('timetype', $horaire)) {
-                    $time->timeType = $horaire['timetype'];
+                if (array_key_exists('timeType', $horaire)) {
+                    $time->timeType = $horaire['timeType'];
                 }
-                if (array_key_exists('recurrencecategory', $horaire)) {
-                    $time->recurrenceCategory = $horaire['recurrencecategory'];
+                if (array_key_exists('recurrenceCategory', $horaire)) {
+                    $time->recurrenceCategory = $horaire['recurrenceCategory'];
                 }
 
                 $em->persist($time);
