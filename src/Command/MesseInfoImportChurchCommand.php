@@ -62,7 +62,7 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                 $location = '';
                 $place->messeInfoId = $eglise['id'];
                 if (array_key_exists('name', $eglise)) {
-                    $place->name = $eglise['name'];
+                    $place->name = trim($eglise['name']);
                 }
                 if (array_key_exists('type', $eglise)) {
                     $place->type = $eglise['type'];
@@ -71,17 +71,17 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                     $place->picture = $eglise['picture'];
                 }
                 if (array_key_exists('address', $eglise)) {
-                    $place->streetAddress = $eglise['address'];
+                    $place->streetAddress = trim($eglise['address']);
                     $location .= $eglise['address'] . ' ';
                 } else {
                     $location .= 'eglise ';
                 }
                 if (array_key_exists('zipcode', $eglise)) {
-                    $place->postalCode = $eglise['zipcode'];
+                    $place->postalCode = trim($eglise['zipcode']);
                     $location .= $eglise['zipcode'] . ' ';
                 }
                 if (array_key_exists('city', $eglise)) {
-                    $place->addressLocality = $eglise['city'];
+                    $place->addressLocality = trim($eglise['city']);
                     $location .= $eglise['city'];
                 }
                 if (array_key_exists('latitude', $eglise)) {

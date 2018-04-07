@@ -81,16 +81,16 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 $parish->diocese = $diocese;
                 $parish->code = $paroisse['id'];
                 $parish->alias = $paroisse['alias'];
-                $parish->name = $paroisse['name'];
+                $parish->name = trim($paroisse['name']);
                 $parish->type = $paroisse['type'];
                 if (array_key_exists('responsible', $paroisse)) {
-                    $parish->responsible = ucwords($paroisse['responsible']);
+                    $parish->responsible = trim(ucwords(strtolower($paroisse['responsible'])));
                 }
                 if (array_key_exists('description', $paroisse)) {
-                    $parish->description = strip_tags(htmlspecialchars_decode($paroisse['description']));
+                    $parish->description = trim(strip_tags(htmlspecialchars_decode($paroisse['description'])));
                 }
                 if (array_key_exists('email', $paroisse)) {
-                    $parish->email = $paroisse['email'];
+                    $parish->email = trim($paroisse['email']);
                 }
 
                 if (array_key_exists('phone', $paroisse)) {
@@ -107,26 +107,26 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     $parish->phoneOriginal = $paroisse['phone'];
                 }
                 if (array_key_exists('url', $paroisse)) {
-                    $parish->url = $paroisse['url'];
+                    $parish->url = trim($paroisse['url']);
                 }
                 $parish->communityType = $paroisse['communityType'];
                 if (array_key_exists('picture', $paroisse)) {
-                    $parish->picture = $paroisse['picture'];
+                    $parish->picture = trim($paroisse['picture']);
                 }
 
                 $location = '';
                 if (array_key_exists('street', $paroisse['address'])) {
-                    $parish->streetAddress = $paroisse['address']['street'];
+                    $parish->streetAddress = trim($paroisse['address']['street']);
                     $location .= $paroisse['address']['street'] . ' ';
                 } else {
                     $location .= 'eglise ';
                 }
                 if (array_key_exists('zipCode', $paroisse['address'])) {
-                    $parish->postalCode = $paroisse['address']['zipCode'];
+                    $parish->postalCode = trim($paroisse['address']['zipCode']);
                     $location .= $paroisse['address']['zipCode'] . ' ';
                 }
                 if (array_key_exists('city', $paroisse['address'])) {
-                    $parish->addressLocality = $paroisse['address']['city'];
+                    $parish->addressLocality = trim($paroisse['address']['city']);
                     $location .= $paroisse['address']['city'];
                 }
                 $parish->addressCountry = $paroisse['address']['region'];
