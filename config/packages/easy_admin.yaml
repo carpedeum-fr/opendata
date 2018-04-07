@@ -61,16 +61,23 @@ easy_admin:
             label: 'Église'
             list:
                 title: "Liste des églises"
+                fields: ['name', 'streetAddress', 'postalCode', 'addressLocality', 'parish']
             class: App\Entity\Place
             form:
                 fields:
                     - name
-                    - { property: 'addressLocality', label: 'Ville' }
-                    - { property: 'postalCode', label: 'Code postal' }
                     - { property: 'streetAddress', label: 'Adresse' }
+                    - { property: 'postalCode', label: 'Code postal' }
+                    - { property: 'addressLocality', label: 'Ville' }
                     - { property: 'addressCountry', type: 'App\Type\CountryType', label: 'Pays' }
+                    - latitude
+                    - longitude
+                    - { property: 'picture', type: 'url' }
         Time:
             label: 'Horaire'
+            list:
+                title: "Liste des horaires"
+                fields: ['id', 'datetime', 'length', 'tags', 'place']
             class: App\Entity\Time
         Address:
             label: 'Adresse'
