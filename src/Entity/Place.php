@@ -33,6 +33,11 @@ class Place
     private $id;
 
     /**
+     * @ORM\ManyToOne(targetEntity="\App\Entity\Parish", inversedBy="churches")
+     */
+    public $parish;
+
+    /**
      * @var ArrayCollection
      *
      * @ORM\OneToMany(targetEntity="\App\Entity\Address", mappedBy="place")
@@ -45,6 +50,15 @@ class Place
      * @ORM\OneToMany(targetEntity="\App\Entity\Time", mappedBy="place")
      */
     public $timetable;
+
+    /**
+     * @var string An ID coming from MesseInfo
+     *
+     * @ORM\Column
+     * @Gedmo\Versioned
+     * @Assert\NotBlank
+     */
+    public $messeInfoId;
 
     /**
      * @var string A place name

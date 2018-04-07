@@ -33,6 +33,13 @@ class Parish
     public $addresses;
 
     /**
+     * @var ArrayCollection
+     *
+     * @ORM\OneToMany(targetEntity="\App\Entity\Place", mappedBy="parish")
+     */
+    public $churches;
+
+    /**
      * @var Address
      *
      * @ORM\OneToOne(targetEntity="\App\Entity\Address")

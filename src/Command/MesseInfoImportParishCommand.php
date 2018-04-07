@@ -11,6 +11,7 @@ use libphonenumber\PhoneNumberFormat;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
@@ -34,13 +35,19 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
         $this
             ->setName('import:messeinfo:parish')
             ->setDescription('Import data using MesseInfo API.')
+            ->addOption('diocese', null, InputOption::VALUE_REQUIRED,
+                'Name of the diocese parish you want to import.')
         ;
     }
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
-        $dioceses = $em->getRepository(Diocese::class)->findAll();
+        if ($input->getOption('diocese')) {
+            $dioceses = $em->getRepository(Diocese::class)->findByName($input->getOption('diocese'));
+        } else {
+            $dioceses = $em->getRepository(Diocese::class)->findAll();
+        }
         $phoneUtil = PhoneNumberUtil::getInstance();
         $stopwatch = new Stopwatch();
         $stopwatch->start('parishImport');

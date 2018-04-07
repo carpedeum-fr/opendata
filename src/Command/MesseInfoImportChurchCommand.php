@@ -9,6 +9,7 @@ use Geocoder\ProviderAggregator;
 use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
+use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
@@ -46,13 +47,21 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
         foreach ($parishes as $parish) {
             $io = new SymfonyStyle($input, $output);
             $io->note($parish->name);
+            $stopwatch->start($parish->name);
             $egliseList = $this->client->request('GET', 'http://www.messes.info/api/v2/lieux-par-communaute/' . $parish->code . '?userkey=test&format=json');
             $egliseArray = json_decode($egliseList->getBody(), true);
             $io->progressStart(count($egliseArray));
 
             foreach ($egliseArray as $eglise) {
+                $dbResult = $em->getRepository(Place::class)->findOneByMesseInfoId($eglise['id']);
+                if ($dbResult) {
+                    $io->progressAdvance();
+                    continue;
+                }
+
                 $place = new Place();
                 $location = '';
+                $place->messeInfoId = $eglise['id'];
                 if (array_key_exists('name', $eglise)) {
                     $place->name = $eglise['name'];
                 }
@@ -83,6 +92,8 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                     $place->longitude = $eglise['longitude'];
                 }
 
+                $place->parish = $parish;
+
                 $em->persist($place);
                 $io->progressAdvance();
 
@@ -111,8 +122,20 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                 }*/
             }
             $em->flush();
+            $timers[$parish->name] = $stopwatch->stop($parish->name);
             $io->progressFinish();
         }
         $event = $stopwatch->stop('churchImport');
+        $io->note('Total duration: '.$event->getDuration().'ms');
+
+        $cleanTimers = [];
+        /** @var Stopwatch $timer */
+        foreach ($timers as $parish => $timer) {
+            $cleanTimers[] = [$parish, $timer->getDuration().'ms'];
+        }
+        $io->table(
+            array('Parish', 'Duration'),
+            $cleanTimers
+        );
     }
 }
