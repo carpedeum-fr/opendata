@@ -36,7 +36,15 @@ easy_admin:
                 fields:
                     - { type: 'group', css_class: 'col-sm-6', label: 'Basic information' }
                     - { property: 'name', label: 'Nom' }
-                    - type
+                    -
+                        property: 'type'
+                        label: "Type"
+                        type: 'choice'
+                        type_options:
+                            choices:
+                                'Groupement paroissial': 'Groupement paroissial'
+                                'Chapellenie': 'Chapellenie'
+                                'Paroisse': 'Paroisse'
                     - commonName
                     - description
                     - { type: 'group', css_class: 'col-sm-6', label: 'Contact' }
@@ -76,6 +84,29 @@ easy_admin:
                     - latitude
                     - longitude
                     - { property: 'picture', type: 'url' }
+                    -
+                        property: 'type'
+                        label: "Type"
+                        type: 'choice'
+                        type_options:
+                            choices:
+                                carmel: 'carmel'
+                                chapelle hôpital: 'chapelle hôpital'
+                                eglise: 'eglise'
+                                église: 'église'
+                                cathedrale: 'cathedrale'
+                                collégiale: 'collégiale'
+                                chapelle: 'chapelle'
+                                monastere: 'monastere'
+                                basilique: 'basilique'
+                                église paroissiale: 'église paroissiale'
+                                maison paroissiale: 'maison paroissiale'
+                                maison religieuse: 'maison religieuse'
+                                Lieu d'accueil: "Lieu d'accueil"
+                                Lieu de célébration exceptionnel: 'Lieu de célébration exceptionnel'
+                                Salle: 'Salle'
+                                chapelle d'établissement scolaire: "chapelle d'établissement scolaire"
+
             show:
                 title: "Église"
                 fields:
@@ -102,9 +133,35 @@ easy_admin:
                     - { property: 'isValid', label: 'Valide' }
                     - { property: 'isActive', label: 'Actif' }
                     - tags
-                    - { property: 'timeType', label: "Type d'horaire", type: 'choice', type_options: { choices: {'Semaine': 'WEEKMASS', 'Heures': 'HOURSLITURGY', 'Autre': 'OTHERCELEBRATION', 'Fête': 'CELEBRATION', 'Dimanche': 'SUNDAYMASS'} } }
-                    - { property: 'celebrationType', label: 'Type de célébration', type: 'choice', type_options: { choices: {'Messe': 'MASS', 'Autre': 'OTHERCELEBRATION', 'Messe de semaine': 'WEEKMASS'} } }
-                    - { property: 'recurrenceCategory', label: 'Régularité', type: 'choice', type_options: { choices: {'Régulier': 'REGULAR', 'Choisir une date (?)': 'SELECT_DATE', 'Unique': 'UNIQUE'} } }
+                    -
+                        property: 'timeType'
+                        label: "Type d'horaire"
+                        type: 'choice'
+                        type_options:
+                            choices:
+                                'Semaine': 'WEEKMASS'
+                                'Heures': 'HOURSLITURGY'
+                                'Autre': 'OTHERCELEBRATION'
+                                'Fête': 'CELEBRATION'
+                                'Dimanche': 'SUNDAYMASS'
+                    -
+                        property: 'celebrationType'
+                        label: 'Type de célébration'
+                        type: 'choice'
+                        type_options:
+                            choices:
+                                'Messe': 'MASS'
+                                'Autre': 'OTHERCELEBRATION'
+                                'Messe de semaine': 'WEEKMASS'
+                    -
+                        property: 'recurrenceCategory'
+                        label: 'Régularité'
+                        type: 'choice'
+                        type_options:
+                            choices:
+                                'Régulier': 'REGULAR'
+                                'Choisir une date (?)': 'SELECT_DATE'
+                                'Unique': 'UNIQUE'
             class: App\Entity\Time
         Address:
             label: 'Adresse'
