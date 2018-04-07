@@ -3,17 +3,15 @@
 namespace App\Command;
 
 
-use App\Entity\Address;
 use App\Entity\Parish;
 use App\Entity\Place;
-use Geocoder\Exception\CollectionIsEmpty;
-use Geocoder\Formatter\StringFormatter;
 use Geocoder\ProviderAggregator;
-use Geocoder\Query\GeocodeQuery;
 use GuzzleHttp\Client;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class MesseInfoImportChurchCommand extends ContainerAwareCommand
 {
@@ -41,12 +39,18 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
     {
         $em = $this->getContainer()->get('doctrine')->getManager();
         $parishes = $em->getRepository(Parish::class)->findAll();
+        $stopwatch = new Stopwatch();
+        $stopwatch->start('churchImport');
 
         /** @var Parish $parish */
         foreach ($parishes as $parish) {
+            $io = new SymfonyStyle($input, $output);
+            $io->note($parish->name);
             $egliseList = $this->client->request('GET', 'http://www.messes.info/api/v2/lieux-par-communaute/' . $parish->code . '?userkey=test&format=json');
+            $egliseArray = json_decode($egliseList->getBody(), true);
+            $io->progressStart(count($egliseArray));
 
-            foreach (json_decode($egliseList->getBody(), true) as $eglise) {
+            foreach ($egliseArray as $eglise) {
                 $place = new Place();
                 $location = '';
                 if (array_key_exists('name', $eglise)) {
@@ -80,11 +84,13 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                 }
 
                 $em->persist($place);
+                $io->progressAdvance();
 
                 // Query Google Maps API for a nice address
                 $location .= ' France';
 
-                try {
+                // This should be done elsewhere to not slowdown the import.
+                /*try {
                     $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
                     $cleanedAddress = new Address();
                     $cleanedAddress->place = $place;
@@ -102,11 +108,11 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                     $em->persist($cleanedAddress);
                 } catch (CollectionIsEmpty $e) {
                     //$output->writeln('Nothing found for: '.$location);
-                }
-                
-                $em->flush();
+                }*/
             }
+            $em->flush();
+            $io->progressFinish();
         }
-
+        $event = $stopwatch->stop('churchImport');
     }
 }
