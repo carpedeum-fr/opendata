@@ -2,13 +2,9 @@
 
 namespace App\Command;
 
-use App\Entity\Address;
 use App\Entity\Diocese;
 use App\Entity\Parish;
-use Geocoder\Exception\CollectionIsEmpty;
-use Geocoder\Formatter\StringFormatter;
 use Geocoder\ProviderAggregator;
-use Geocoder\Query\GeocodeQuery;
 use GuzzleHttp\Client;
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberFormat;
@@ -16,6 +12,8 @@ use libphonenumber\PhoneNumberUtil;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
+use Symfony\Component\Stopwatch\Stopwatch;
 
 class MesseInfoImportParishCommand extends ContainerAwareCommand
 {
@@ -44,13 +42,22 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
         $em = $this->getContainer()->get('doctrine')->getManager();
         $dioceses = $em->getRepository(Diocese::class)->findAll();
         $phoneUtil = PhoneNumberUtil::getInstance();
+        $stopwatch = new Stopwatch();
+        $stopwatch->start('parishImport');
+        $timers = [];
 
         /** @var Diocese $diocese */
         foreach ($dioceses as $diocese)
         {
-            $output->writeln($diocese->name);
+            $io = new SymfonyStyle($input, $output);
+            $io->note($diocese->name);
+
+            $stopwatch->start($diocese->name);
             $paroisseList = $this->client->request('GET', 'http://www.messes.info/api/v2/diocese/'.$diocese->code.'?userkey=test&format=json');
-            foreach (json_decode($paroisseList->getBody(), true) as $paroisse){
+            $paroisseArray = json_decode($paroisseList->getBody(), true);
+            $io->progressStart(count($paroisseArray));
+
+            foreach ($paroisseArray as $paroisse) {
                 if (!array_key_exists('alias', $paroisse)) {
                     $output->write('!');
                     continue;
@@ -99,44 +106,37 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                 if (array_key_exists('picture', $paroisse)) {
                     $parish->picture = $paroisse['picture'];
                 }
-                $em->persist($parish);
 
-                $originalAddress = new Address();
-                $originalAddress->parish = $parish;
-                $originalAddress->origin = 'MesseInfo';
-                if (array_key_exists('street', $paroisse['address'])) {
-                    $originalAddress->streetAddress = $paroisse['address']['street'];
-                }
-                if (array_key_exists('zipCode', $paroisse['address'])) {
-                    $originalAddress->postalCode = $paroisse['address']['zipCode'];
-                }
-                if (array_key_exists('city', $paroisse['address'])) {
-                    $originalAddress->addressLocality = $paroisse['address']['city'];
-                }
-                $originalAddress->addressCountry = $paroisse['address']['region'];
-                if (in_array('latLng', $paroisse['address'])) {
-                    $originalAddress->latitude = $paroisse['address']['latLng']['latitude'];
-                    $originalAddress->longitude = $paroisse['address']['latLng']['longitude'];
-                    $originalAddress->zoom = $paroisse['address']['latLng']['zoom'];
-                }
-                $em->persist($originalAddress);
-
-                // Query Google Maps API for a nice address
                 $location = '';
                 if (array_key_exists('street', $paroisse['address'])) {
+                    $parish->streetAddress = $paroisse['address']['street'];
                     $location .= $paroisse['address']['street'] . ' ';
                 } else {
                     $location .= 'eglise ';
                 }
                 if (array_key_exists('zipCode', $paroisse['address'])) {
+                    $parish->postalCode = $paroisse['address']['zipCode'];
                     $location .= $paroisse['address']['zipCode'] . ' ';
                 }
                 if (array_key_exists('city', $paroisse['address'])) {
+                    $parish->addressLocality = $paroisse['address']['city'];
                     $location .= $paroisse['address']['city'];
                 }
+                $parish->addressCountry = $paroisse['address']['region'];
+                if (in_array('latLng', $paroisse['address'])) {
+                    $parish->latitude = $paroisse['address']['latLng']['latitude'];
+                    $parish->longitude = $paroisse['address']['latLng']['longitude'];
+                    $parish->zoom = $paroisse['address']['latLng']['zoom'];
+                }
+                $em->persist($parish);
+                $em->flush();
+                $io->progressAdvance();
+
+                // Query Google Maps API for a nice address
                 $location .= $paroisse['address']['region'];
 
-                try {
+                // This should be done elsewhere to not slowdown the import.
+                /*try {
                     $geoData = $this->provider->geocodeQuery(GeocodeQuery::create($location))->first();
                     $cleanedAddress = new Address();
                     $cleanedAddress->parish = $parish;
@@ -154,9 +154,24 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     $em->persist($cleanedAddress);
                 } catch (CollectionIsEmpty $e) {
                     //$output->writeln('Nothing found for: '.$location);
-                }
+                }*/
             }
-            $em->flush();
+            $timers[$diocese->name] = $stopwatch->stop($diocese->name);
+            $io->progressFinish();
         }
+
+        $event = $stopwatch->stop('parishImport');
+        $io->note('Total duration: '.$event->getDuration());
+
+
+        $cleanTimers = [];
+        /** @var Stopwatch $timer */
+        foreach ($timers as $diocese => $timer) {
+            $cleanTimers[] = [$diocese, $timer->getDuration().'ms'];
+        }
+        $io->table(
+            array('Diocese', 'Duration'),
+            $cleanTimers
+        );
     }
 }
