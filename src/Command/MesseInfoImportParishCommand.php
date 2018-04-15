@@ -13,7 +13,6 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Stopwatch\Stopwatch;
 
 class MesseInfoImportParishCommand extends ImportCommand
 {
@@ -30,7 +29,7 @@ class MesseInfoImportParishCommand extends ImportCommand
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
-        $this->stopwatch->start('parishImport');
+        $this->stopwatch->start('global');
 
         /** @var Diocese $diocese */
         foreach ($this->getDioceses($input->getOption('diocese')) as $diocese)
@@ -53,26 +52,14 @@ class MesseInfoImportParishCommand extends ImportCommand
                 }
 
                 $output->write('+');
-                $this->prepareParish($diocese, $paroisse);
+                $this->prepareParish($diocese, $paroisse, $output);
                 $io->progressAdvance();
             }
             $this->timers[$diocese->name] = $this->stopwatch->stop($diocese->name);
             $io->progressFinish();
         }
 
-        $event = $this->stopwatch->stop('parishImport');
-        $io->note('Total duration: '.$event->getDuration());
-
-
-        $cleanTimers = [];
-        /** @var Stopwatch $timer */
-        foreach ($this->timers as $diocese => $timer) {
-            $cleanTimers[] = [$diocese, $timer->getDuration().'ms'];
-        }
-        $io->table(
-            array('Diocese', 'Duration'),
-            $cleanTimers
-        );
+        $this->dumpRecap($io);
     }
 
     private function getDioceses($diocese)
@@ -101,7 +88,7 @@ class MesseInfoImportParishCommand extends ImportCommand
         $parish->phoneOriginal = $paroisse['phone'];
     }
 
-    private function prepareParish($diocese, $paroisse)
+    private function prepareParish($diocese, $paroisse, $output)
     {
         $parish = new Parish();
         $parish->diocese = $diocese;
@@ -115,7 +102,7 @@ class MesseInfoImportParishCommand extends ImportCommand
             $parish->description = trim(strip_tags(htmlspecialchars_decode($paroisse['description'])));
         }
         if (array_key_exists('phone', $paroisse)) {
-            $this->preparePhone($paroisse, $diocese, $parish);
+            $this->preparePhone($paroisse, $diocese, $parish, $output);
         }
 
         $parameters = ['alias', 'name', 'email', 'url', 'picture', 'type', 'communityType'];

@@ -12,6 +12,7 @@ use Geocoder\ProviderAggregator;
 use GuzzleHttp\Client;
 use libphonenumber\PhoneNumberUtil;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
 
 abstract class ImportCommand extends ContainerAwareCommand
@@ -51,6 +52,23 @@ abstract class ImportCommand extends ContainerAwareCommand
 
         // this is required due to parent constructor, which sets up name
         parent::__construct();
+    }
+
+    protected function dumpRecap(SymfonyStyle $io)
+    {
+        $event = $this->stopwatch->stop('global');
+        $io->note('Total duration: '.$event->getDuration().'ms');
+
+
+        $cleanTimers = [];
+        /** @var Stopwatch $timer */
+        foreach ($this->timers as $key => $timer) {
+            $cleanTimers[] = [$key, $timer->getDuration().'ms'];
+        }
+        $io->table(
+            array('Object', 'Duration'),
+            $cleanTimers
+        );
     }
 
     protected function getJson($url)

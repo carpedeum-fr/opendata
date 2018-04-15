@@ -9,7 +9,6 @@ use App\Entity\Time;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
-use Symfony\Component\Stopwatch\Stopwatch;
 
 class MesseInfoImportTimetableCommand extends ImportCommand
 {
@@ -25,7 +24,7 @@ class MesseInfoImportTimetableCommand extends ImportCommand
     {
         $io = new SymfonyStyle($input, $output);
         $places = $this->churchRepository->findAll();
-        $this->stopwatch->start('timeImport');
+        $this->stopwatch->start('global');
 
         /** @var Place $place */
         foreach ($places as $place) {
@@ -76,17 +75,7 @@ class MesseInfoImportTimetableCommand extends ImportCommand
             $this->timers[$place->name] = $this->stopwatch->stop($place->name);
             $io->progressFinish();
         }
-        $event = $this->stopwatch->stop('timeImport');
-        $io->note('Total duration: ' . $event->getDuration() . 'ms');
 
-        $cleanTimers = [];
-        /** @var Stopwatch $timer */
-        foreach ($this->timers as $place => $timer) {
-            $cleanTimers[] = [$place, $timer->getDuration() . 'ms'];
-        }
-        $io->table(
-            array('Parish', 'Duration'),
-            $cleanTimers
-        );
+        $this->dumpRecap($io);
     }
 }
