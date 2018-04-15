@@ -4,32 +4,17 @@ namespace App\Command;
 
 use App\Entity\Diocese;
 use App\Entity\Parish;
-use Geocoder\ProviderAggregator;
-use GuzzleHttp\Client;
 use libphonenumber\NumberParseException;
 use libphonenumber\PhoneNumberFormat;
 use libphonenumber\PhoneNumberUtil;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
 
-class MesseInfoImportParishCommand extends ContainerAwareCommand
+class MesseInfoImportParishCommand extends ImportCommand
 {
-    private $client;
-    private $provider;
-
-    public function __construct(ProviderAggregator $provider)
-    {
-        $this->client= new Client();
-        $this->provider = $provider;
-
-        // this is required due to parent constructor, which sets up name
-        parent::__construct();
-    }
-
     protected function configure()
     {
         $this
@@ -40,28 +25,30 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
         ;
     }
 
+    private function getDioceses($diocese)
+    {
+        if ($diocese) {
+            $dioceses = $this->dioceseRepository->findByName($diocese);
+        } else {
+            $dioceses = $this->dioceseRepository->findAll();
+        }
+
+        return $dioceses;
+    }
+
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $em = $this->getContainer()->get('doctrine')->getManager();
-        if ($input->getOption('diocese')) {
-            $dioceses = $em->getRepository(Diocese::class)->findByName($input->getOption('diocese'));
-        } else {
-            $dioceses = $em->getRepository(Diocese::class)->findAll();
-        }
+        $io = new SymfonyStyle($input, $output);
+
         $phoneUtil = PhoneNumberUtil::getInstance();
-        $stopwatch = new Stopwatch();
-        $stopwatch->start('parishImport');
-        $timers = [];
+        $this->stopwatch->start('parishImport');
 
         /** @var Diocese $diocese */
-        foreach ($dioceses as $diocese)
+        foreach ($this->getDioceses($input->getOption('diocese')) as $diocese)
         {
-            $io = new SymfonyStyle($input, $output);
             $io->note($diocese->name);
-
-            $stopwatch->start($diocese->name);
-            $paroisseList = $this->client->request('GET', 'http://www.messes.info/api/v2/diocese/'.$diocese->code.'?userkey=test&format=json');
-            $paroisseArray = json_decode($paroisseList->getBody(), true);
+            $this->stopwatch->start($diocese->name);
+            $paroisseArray = $this->getParish($diocese->code);
             $io->progressStart(count($paroisseArray));
 
             foreach ($paroisseArray as $paroisse) {
@@ -70,7 +57,7 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     continue;
                 }
 
-                $dbResult = $em->getRepository(Parish::class)->findOneByAlias($paroisse['alias']);
+                $dbResult = $this->parishRepository->findOneByAlias($paroisse['alias']);
                 if ($dbResult) {
                     $output->write('.');
                     continue;
@@ -135,8 +122,8 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     $parish->longitude = $paroisse['address']['latLng']['longitude'];
                     $parish->zoom = $paroisse['address']['latLng']['zoom'];
                 }
-                $em->persist($parish);
-                $em->flush();
+                $this->em->persist($parish);
+                $this->em->flush();
                 $io->progressAdvance();
 
                 // Query Google Maps API for a nice address
@@ -163,17 +150,17 @@ class MesseInfoImportParishCommand extends ContainerAwareCommand
                     //$output->writeln('Nothing found for: '.$location);
                 }*/
             }
-            $timers[$diocese->name] = $stopwatch->stop($diocese->name);
+            $this->timers[$diocese->name] = $this->stopwatch->stop($diocese->name);
             $io->progressFinish();
         }
 
-        $event = $stopwatch->stop('parishImport');
+        $event = $this->stopwatch->stop('parishImport');
         $io->note('Total duration: '.$event->getDuration());
 
 
         $cleanTimers = [];
         /** @var Stopwatch $timer */
-        foreach ($timers as $diocese => $timer) {
+        foreach ($this->timers as $diocese => $timer) {
             $cleanTimers[] = [$diocese, $timer->getDuration().'ms'];
         }
         $io->table(

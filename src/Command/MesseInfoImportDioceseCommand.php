@@ -4,27 +4,12 @@ namespace App\Command;
 
 use App\Entity\Diocese;
 use Geocoder\Exception\CollectionIsEmpty;
-use Geocoder\ProviderAggregator;
 use Geocoder\Query\GeocodeQuery;
-use GuzzleHttp\Client;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class MesseInfoImportDioceseCommand extends ContainerAwareCommand
+class MesseInfoImportDioceseCommand extends ImportCommand
 {
-    private $client;
-    private $provider;
-
-    public function __construct(ProviderAggregator $provider)
-    {
-        $this->client = new Client();
-        $this->provider = $provider;
-
-        // this is required due to parent constructor, which sets up name
-        parent::__construct();
-    }
-
     protected function configure()
     {
         $this
@@ -35,17 +20,14 @@ class MesseInfoImportDioceseCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $em = $this->getContainer()->get('doctrine')->getManager();
-        $dioceseList = $this->client->request('GET', 'https://www.messes.info/api/v2/dioceses/?format=json&userkey=test');
-
-        foreach (json_decode($dioceseList->getBody(), true) as $messeInfoDiocese)
+        foreach ($this->getDiocese() as $messeInfoDiocese)
         {
             if (2 !== strlen($messeInfoDiocese['id'])) {
                 $output->writeln('Skipping '.$messeInfoDiocese['name'].' because id is like: '.$messeInfoDiocese['id']);
                 continue;
             }
 
-            $dbResult = $em->getRepository(Diocese::class)->findOneByCode($messeInfoDiocese['id']);
+            $dbResult = $this->dioceseRepository->findOneByCode($messeInfoDiocese['id']);
             if ($dbResult) {
                 $output->writeln('Skipping '.$dbResult->name.' because it\'s already saved in db.');
                 continue;
@@ -75,9 +57,9 @@ class MesseInfoImportDioceseCommand extends ContainerAwareCommand
                 $diocese->longitude = $geoData->getCoordinates()->getLongitude();
             }
 
-            $em->persist($diocese);
+            $this->em->persist($diocese);
         }
 
-        $em->flush();
+        $this->em->flush();
     }
 }

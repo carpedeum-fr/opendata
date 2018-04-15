@@ -5,28 +5,13 @@ namespace App\Command;
 
 use App\Entity\Parish;
 use App\Entity\Place;
-use Geocoder\ProviderAggregator;
-use GuzzleHttp\Client;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
 
-class MesseInfoImportChurchCommand extends ContainerAwareCommand
+class MesseInfoImportChurchCommand extends ImportCommand
 {
-    private $client;
-    private $provider;
-
-    public function __construct(ProviderAggregator $provider)
-    {
-        $this->client= new Client();
-        $this->provider = $provider;
-
-        // this is required due to parent constructor, which sets up name
-        parent::__construct();
-    }
-
     protected function configure()
     {
         $this
@@ -37,22 +22,20 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $em = $this->getContainer()->get('doctrine')->getManager();
-        $parishes = $em->getRepository(Parish::class)->findAll();
-        $stopwatch = new Stopwatch();
-        $stopwatch->start('churchImport');
+        $io = new SymfonyStyle($input, $output);
+        $this->stopwatch->start('import');
+        $parishes = $this->parishRepository->findAll();
 
         /** @var Parish $parish */
         foreach ($parishes as $parish) {
-            $io = new SymfonyStyle($input, $output);
             $io->note($parish->name);
-            $stopwatch->start($parish->name);
-            $egliseList = $this->client->request('GET', 'http://www.messes.info/api/v2/lieux-par-communaute/' . $parish->code . '?userkey=test&format=json');
-            $egliseArray = json_decode($egliseList->getBody(), true);
+            $this->stopwatch->start($parish->name);
+
+            $egliseArray = $this->getChurch($parish->code);
             $io->progressStart(count($egliseArray));
 
             foreach ($egliseArray as $eglise) {
-                $dbResult = $em->getRepository(Place::class)->findOneByMesseInfoId($eglise['id']);
+                $dbResult = $this->churchRepository->findOneByMesseInfoId($eglise['id']);
                 if ($dbResult) {
                     $io->progressAdvance();
                     continue;
@@ -93,7 +76,7 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
 
                 $place->parish = $parish;
 
-                $em->persist($place);
+                $this->em->persist($place);
                 $io->progressAdvance();
 
                 // Query Google Maps API for a nice address
@@ -120,16 +103,16 @@ class MesseInfoImportChurchCommand extends ContainerAwareCommand
                     //$output->writeln('Nothing found for: '.$location);
                 }*/
             }
-            $em->flush();
-            $timers[$parish->name] = $stopwatch->stop($parish->name);
+            $this->em->flush();
+            $this->timers[$parish->name] = $this->stopwatch->stop($parish->name);
             $io->progressFinish();
         }
-        $event = $stopwatch->stop('churchImport');
+        $event = $this->stopwatch->stop('import');
         $io->note('Total duration: '.$event->getDuration().'ms');
 
         $cleanTimers = [];
         /** @var Stopwatch $timer */
-        foreach ($timers as $parish => $timer) {
+        foreach ($this->timers as $parish => $timer) {
             $cleanTimers[] = [$parish, $timer->getDuration().'ms'];
         }
         $io->table(

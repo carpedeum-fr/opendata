@@ -6,25 +6,13 @@ namespace App\Command;
 
 use App\Entity\Place;
 use App\Entity\Time;
-use GuzzleHttp\Client;
-use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Stopwatch\Stopwatch;
 
-class MesseInfoImportTimetableCommand extends ContainerAwareCommand
+class MesseInfoImportTimetableCommand extends ImportCommand
 {
-    private $client;
-
-    public function __construct()
-    {
-        $this->client= new Client();
-
-        // this is required due to parent constructor, which sets up name
-        parent::__construct();
-    }
-
     protected function configure()
     {
         $this
@@ -36,22 +24,19 @@ class MesseInfoImportTimetableCommand extends ContainerAwareCommand
 
     protected function execute(InputInterface $input, OutputInterface $output)
     {
-        $em = $this->getContainer()->get('doctrine')->getManager();
-        $places = $em->getRepository(Place::class)->findAll();
-        $stopwatch = new Stopwatch();
-        $stopwatch->start('timeImport');
+        $io = new SymfonyStyle($input, $output);
+        $places = $this->churchRepository->findAll();
+        $this->stopwatch->start('timeImport');
 
         /** @var Place $place */
         foreach ($places as $place) {
-            $io = new SymfonyStyle($input, $output);
             $io->note($place->name);
-            $stopwatch->start($place->name);
-            $timetableList = $this->client->request('GET', 'http://www.messes.info/api/v2/horaires_par_lieu/' . $place->messeInfoId . '?userkey=test&format=json');
-            $timetableArray = json_decode($timetableList->getBody(), true);
+            $this->stopwatch->start($place->name);
+            $timetableArray = $this->getTime($place->messeInfoId);
             $io->progressStart(count($timetableArray));
 
             foreach ($timetableArray as $horaire) {
-                $time = $em->getRepository(Time::class)->findOneByMesseInfoId($horaire['id']);
+                $time = $this->timeRepository->findOneByMesseInfoId($horaire['id']);
                 if (!$time) {
                     $time = new Time();
                 }
@@ -84,20 +69,20 @@ class MesseInfoImportTimetableCommand extends ContainerAwareCommand
                     $time->recurrenceCategory = $horaire['recurrenceCategory'];
                 }
 
-                $em->persist($time);
+                $this->em->persist($time);
                 $io->progressAdvance();
 
             }
-            $em->flush();
-            $timers[$place->name] = $stopwatch->stop($place->name);
+            $this->em->flush();
+            $this->timers[$place->name] = $this->stopwatch->stop($place->name);
             $io->progressFinish();
         }
-        $event = $stopwatch->stop('timeImport');
+        $event = $this->stopwatch->stop('timeImport');
         $io->note('Total duration: ' . $event->getDuration() . 'ms');
 
         $cleanTimers = [];
         /** @var Stopwatch $timer */
-        foreach ($timers as $place => $timer) {
+        foreach ($this->timers as $place => $timer) {
             $cleanTimers[] = [$place, $timer->getDuration() . 'ms'];
         }
         $io->table(
