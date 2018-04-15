@@ -73,7 +73,7 @@ class MesseInfoImportParishCommand extends ImportCommand
         return $dioceses;
     }
 
-    private function preparePhone($paroisse, $diocese, $parish)
+    private function preparePhone($paroisse, $diocese, $parish, $output)
     {
         try {
             $phoneNumber = $this->phoneUtil->parse($paroisse['phone'], $diocese->country);
@@ -95,11 +95,12 @@ class MesseInfoImportParishCommand extends ImportCommand
         $parish->code = $paroisse['id'];
 
         if (array_key_exists('responsible', $paroisse)) {
-            $parish->responsible = trim(ucwords(strtolower($paroisse['responsible'])));
+            $parish->responsible = mb_convert_case(trim($paroisse['responsible']), MB_CASE_TITLE);
         }
 
         if (array_key_exists('description', $paroisse)) {
-            $parish->description = trim(strip_tags(htmlspecialchars_decode($paroisse['description'])));
+            $description = trim(strip_tags($paroisse['description']));
+            $parish->description = html_entity_decode(htmlspecialchars_decode($description, ENT_QUOTES));
         }
         if (array_key_exists('phone', $paroisse)) {
             $this->preparePhone($paroisse, $diocese, $parish, $output);
