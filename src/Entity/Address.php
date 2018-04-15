@@ -8,7 +8,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\AddressRepository")
  * @Gedmo\Loggable
  */
 class Address

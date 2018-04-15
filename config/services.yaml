@@ -26,3 +26,19 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    App\Repository\DioceseRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Diocese
+    App\Repository\ParishRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Parish
+    App\Repository\PlaceRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Place
+    App\Repository\TimeRepository:
+        factory: doctrine.orm.entity_manager:getRepository
+        arguments:
+            - App\Entity\Time
