@@ -1,0 +1,824 @@
+[
+	{
+		"id": "CEF",
+		"name": "Conférence des évêques de France",
+		"region": "fr",
+		"website": "http://www.eglise.catholique.fr/"
+	},
+	{
+		"id": "Diaconia",
+		"name": "Diaconia 2013",
+		"region": "fr"
+	},
+	{
+		"id": "Etr",
+		"name": "Français à l'étranger",
+		"region": "fr",
+		"website": "http://www.aumoneries-francophones.cef.fr"
+	},
+	{
+		"id": "JEUNES",
+		"name": "SNEJV",
+		"region": "fr"
+	},
+	{
+		"id": "Judee",
+		"name": "Judée",
+		"region": "_"
+	},
+	{
+		"id": "MARCHE-DE-SAINT-JOSEPH",
+		"name": "Marche de Saint Joseph",
+		"region": "fr"
+	},
+	{
+		"id": "NARTHEX",
+		"name": "Narthex",
+		"region": "fr"
+	},
+	{
+		"id": "TISSERANDS",
+		"name": "Tisserands",
+		"region": "fr",
+		"website": "www.tisserands.catholique.fr"
+	},
+	{
+		"id": "aa",
+		"name": "Aix-en-Provence - Arles",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://catho-aixarles.fr"
+	},
+	{
+		"id": "ab",
+		"name": "Albi",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://catholique-tarn.cef.fr/"
+	},
+	{
+		"id": "ac",
+		"name": "Autun - Chalon - Mâcon",
+		"region": "fr",
+		"sector": "Bourgogne",
+		"website": "http://www.autun.catholique.fr"
+	},
+	{
+		"id": "ad",
+		"name": "Aire - Dax",
+		"region": "fr",
+		"sector": "Aquitaine",
+		"website": "http://landes.catholique.fr/"
+	},
+	{
+		"id": "ag",
+		"name": "Agen",
+		"region": "fr",
+		"sector": "Aquitaine",
+		"website": "http://catholique-agen.cef.fr/"
+	},
+	{
+		"id": "aj",
+		"name": "Ajaccio",
+		"region": "fr",
+		"sector": "Corse",
+		"website": "http://www.corse.catholique.fr"
+	},
+	{
+		"id": "al",
+		"name": "Angoulême",
+		"region": "fr",
+		"sector": "PoitouCharentes",
+		"website": "http://angouleme.catholique.fr/"
+	},
+	{
+		"id": "am",
+		"name": "Amiens",
+		"region": "fr",
+		"sector": "Picardie",
+		"website": "http://amiens.catholique.fr"
+	},
+	{
+		"id": "an",
+		"name": "Angers",
+		"region": "fr",
+		"sector": "PaysdelaLoire",
+		"website": "http://catholique-angers.cef.fr/"
+	},
+	{
+		"id": "ar",
+		"name": "Arras",
+		"region": "fr",
+		"sector": "NordPasdeCalais",
+		"website": "http://www.arras.catholique.fr/"
+	},
+	{
+		"id": "au",
+		"name": "Auch",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://auch.catholique.fr/"
+	},
+	{
+		"id": "av",
+		"name": "Avignon",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://diocese-avignon.fr"
+	},
+	{
+		"id": "ay",
+		"name": "Annecy",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://www.diocese-annecy.fr/"
+	},
+	{
+		"id": "ba",
+		"name": "Belley - Ars",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://catholique-belley-ars.cef.fr/"
+	},
+	{
+		"id": "bb",
+		"name": "Bordeaux - Bazas",
+		"region": "fr",
+		"sector": "Aquitaine",
+		"website": "http://www.bordeaux.catholique.fr"
+	},
+	{
+		"id": "be",
+		"name": "Besançon",
+		"region": "fr",
+		"sector": "FrancheComte",
+		"website": "http://catholique-besancon.cef.fr/"
+	},
+	{
+		"id": "bl",
+		"name": "Bayeux - Lisieux",
+		"region": "fr",
+		"sector": "BasseNormandie",
+		"website": "http://www.bayeuxlisieux.catholique.fr"
+	},
+	{
+		"id": "bm",
+		"name": "Belfort - Monbéliard",
+		"region": "fr",
+		"sector": "FrancheComte",
+		"website": "http://catholique-belfort-montbe.cef.fr/"
+	},
+	{
+		"id": "bo",
+		"name": "Bourges",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://catholique-bourges.cef.fr/"
+	},
+	{
+		"id": "br",
+		"name": "Saint-Brieuc",
+		"region": "fr",
+		"sector": "Bretagne",
+		"website": "http://saintbrieuc-treguier.catholique.fr/"
+	},
+	{
+		"id": "bs",
+		"name": "Blois",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://www.catholique-blois.net/"
+	},
+	{
+		"id": "bt",
+		"name": "Basse-Terre (Guadeloupe)",
+		"region": "gp",
+		"sector": "Dom",
+		"website": "http://www.catholique-guadeloupe.info/"
+	},
+	{
+		"id": "bv",
+		"name": "Beauvais - Noyon - Senlis",
+		"region": "fr",
+		"sector": "Picardie",
+		"website": "http://www.oise.catholique.fr/"
+	},
+	{
+		"id": "by",
+		"name": "Bayonne - Lescar - Oloron",
+		"region": "fr",
+		"sector": "Aquitaine",
+		"website": "http://diocese64.org"
+	},
+	{
+		"id": "ca",
+		"name": "Coutances - Avranches",
+		"region": "fr",
+		"sector": "BasseNormandie",
+		"website": "http://www.coutances.catholique.fr/"
+	},
+	{
+		"id": "cb",
+		"name": "Cambrai",
+		"region": "fr",
+		"sector": "NordPasdeCalais",
+		"website": "http://catholique-cambrai.cef.fr/"
+	},
+	{
+		"id": "cc",
+		"name": "Diocèse de Châlons-en-Champagne",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://chalons.catholique.fr"
+	},
+	{
+		"id": "cd",
+		"name": "Saint-Claude",
+		"region": "fr",
+		"sector": "FrancheComte",
+		"website": "http://www.eglisejura.com/"
+	},
+	{
+		"id": "ch",
+		"name": "Chartres",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://catholique-chartres.cef.fr/"
+	},
+	{
+		"id": "cl",
+		"name": "Clermont",
+		"region": "fr",
+		"sector": "Auvergne",
+		"website": "http://clermont.catholique.fr/"
+	},
+	{
+		"id": "cm",
+		"name": "Chambéry - Maurienne - Tarentaise",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://catholique-savoie.cef.fr/"
+	},
+	{
+		"id": "cn",
+		"name": "Carcassonne",
+		"region": "fr",
+		"sector": "LanguedocRoussillon",
+		"website": "http://www.aude.catholique.fr"
+	},
+	{
+		"id": "cr",
+		"name": "Créteil",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://catholiques-val-de-marne.cef.fr/"
+	},
+	{
+		"id": "cs",
+		"name": "Cahors",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://www.cahors.catholique.fr/"
+	},
+	{
+		"id": "cy",
+		"name": "Cayenne (Guyane Française)",
+		"region": "gf",
+		"sector": "Dom",
+		"website": "http://www.guyane.catholique.fr/"
+	},
+	{
+		"id": "da",
+		"name": "Diocèse aux Armées",
+		"region": "fr",
+		"website": "http://www.dioceseauxarmees.fr"
+	},
+	{
+		"id": "dg",
+		"name": "Digne - Riez - Sisteron",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://catho04.cef.fr/"
+	},
+	{
+		"id": "di",
+		"name": "Saint-Dié",
+		"region": "fr",
+		"sector": "Lorraine",
+		"website": "https://www.catholique88.fr"
+	},
+	{
+		"id": "dj",
+		"name": "Dijon",
+		"region": "fr",
+		"sector": "Bourgogne",
+		"website": "http://catholique-dijon.cef.fr/"
+	},
+	{
+		"id": "dn",
+		"name": "Saint-Denis",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://saint-denis.catholique.fr/"
+	},
+	{
+		"id": "ea",
+		"name": "Exarchat Apostolique pour les Ukrainiens",
+		"region": "fr",
+		"website": "http://eglise.ukrainienne.free.fr"
+	},
+	{
+		"id": "ep",
+		"name": "Eparchie Ste Croix de Paris Arméniens catholiques",
+		"region": "fr",
+		"website": "http://www.armeniancatholic.org/"
+	},
+	{
+		"id": "et",
+		"name": "Saint-Etienne",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://www.saint-etienne.catholique.fr"
+	},
+	{
+		"id": "ex",
+		"name": "Evreux",
+		"region": "fr",
+		"sector": "HauteNormandie",
+		"website": "http://www.evreux.catholique.fr"
+	},
+	{
+		"id": "ey",
+		"name": "Evry - Corbeil-Essonnes",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://www.evry.catholique.fr"
+	},
+	{
+		"id": "fmj",
+		"name": "Fraternités Monastiques de Jérusalem",
+		"region": "fr"
+	},
+	{
+		"id": "ft",
+		"name": "Fréjus-Toulon",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://www.diocese-frejus-toulon.com/"
+	},
+	{
+		"id": "ga",
+		"name": "Gap - Embrun",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://diocesedegap.over-blog.com"
+	},
+	{
+		"id": "gr",
+		"name": "Diocèse Grenoble-Vienne",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://www.diocese-grenoble-vienne.fr"
+	},
+	{
+		"id": "lg",
+		"name": "Langres",
+		"region": "fr",
+		"sector": "ChampagneArdenne",
+		"website": "http://catholique-hautemarne.cef.fr/"
+	},
+	{
+		"id": "lh",
+		"name": "Le Havre",
+		"region": "fr",
+		"sector": "HauteNormandie",
+		"website": "http://www.lehavre.catholique.fr/"
+	},
+	{
+		"id": "li",
+		"name": "Lille",
+		"region": "fr",
+		"sector": "NordPasdeCalais",
+		"website": "http://www.lille.catholique.fr/"
+	},
+	{
+		"id": "librairies-religieuses",
+		"name": "Librairies religieuses",
+		"region": "fr"
+	},
+	{
+		"id": "lm",
+		"name": "Le Mans",
+		"region": "fr",
+		"sector": "PaysdelaLoire",
+		"website": "http://dioceselemans.cef.fr/"
+	},
+	{
+		"id": "lp",
+		"name": "Le Puy",
+		"region": "fr",
+		"sector": "Auvergne",
+		"website": "http://catholique-lepuy.cef.fr/"
+	},
+	{
+		"id": "lr",
+		"name": "La Rochelle - Saintes",
+		"region": "fr",
+		"sector": "PoitouCharentes",
+		"website": "http://catholique-larochelle.cef.fr/"
+	},
+	{
+		"id": "ls",
+		"name": "Limoges",
+		"region": "fr",
+		"sector": "Limousin",
+		"website": "http://catholique-limoges.cef.fr/"
+	},
+	{
+		"id": "lu",
+		"name": "Luçon",
+		"region": "fr",
+		"sector": "PaysdelaLoire",
+		"website": "http://vendee.catholique.fr/"
+	},
+	{
+		"id": "lv",
+		"name": "Laval",
+		"region": "fr",
+		"sector": "PaysdelaLoire",
+		"website": "http://www.diocese-laval.fr/"
+	},
+	{
+		"id": "ly",
+		"name": "Lyon",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://www.lyon.catholique.fr"
+	},
+	{
+		"id": "ma",
+		"name": "Marseille",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://www.marseille.catholique.fr"
+	},
+	{
+		"id": "md",
+		"name": "Mende",
+		"region": "fr",
+		"sector": "LanguedocRoussillon",
+		"website": "http://catholozere.cef.fr/"
+	},
+	{
+		"id": "me",
+		"name": "Metz",
+		"region": "fr",
+		"sector": "Lorraine",
+		"website": "http://www.metz.catholique.fr"
+	},
+	{
+		"id": "mf",
+		"name": "Mission de France",
+		"region": "fr",
+		"website": "http://catholique-mission-de-france.cef.fr/"
+	},
+	{
+		"id": "ml",
+		"name": "Moulins",
+		"region": "fr",
+		"sector": "Auvergne",
+		"website": "http://catholique-moulins.cef.fr/"
+	},
+	{
+		"id": "mn",
+		"name": "Fort de France (Martinique)",
+		"region": "mq",
+		"sector": "Dom",
+		"website": "http://martinique.catholique.fr"
+	},
+	{
+		"id": "mo",
+		"name": "Monaco",
+		"region": "mc",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://www.eglise-catholique.mc"
+	},
+	{
+		"id": "mp",
+		"name": "Diocèse de Montpellier",
+		"region": "fr",
+		"sector": "LanguedocRoussillon",
+		"website": "http://catholique-montpellier.cef.fr/"
+	},
+	{
+		"id": "mt",
+		"name": "Montauban",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://catholique-montauban.cef.fr/"
+	},
+	{
+		"id": "mx",
+		"name": "Meaux",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://eglisecatho-meaux.cef.fr"
+	},
+	{
+		"id": "my",
+		"name": "Mayotte",
+		"region": "fr",
+		"sector": "Tom",
+		"website": "null"
+	},
+	{
+		"id": "na",
+		"name": "Nantes",
+		"region": "fr",
+		"sector": "PaysdelaLoire",
+		"website": "http://catholique-nantes.cef.fr/"
+	},
+	{
+		"id": "nc",
+		"name": "Nice",
+		"region": "fr",
+		"sector": "ProvenceAlpesCotedAzur",
+		"website": "http://www.nice.catholique.fr/"
+	},
+	{
+		"id": "ni",
+		"name": "Nîmes - Uzès - Alès",
+		"region": "fr",
+		"sector": "LanguedocRoussillon",
+		"website": "http://www.nimes-catholique.fr"
+	},
+	{
+		"id": "nl",
+		"name": "National",
+		"region": "fr",
+		"website": "http://www.eglise.catholique.fr"
+	},
+	{
+		"id": "no",
+		"name": "Nouméa (Nouvelle Calédonie)",
+		"region": "fr",
+		"sector": "Tom",
+		"website": "http://www.ddec.nc/diocese/"
+	},
+	{
+		"id": "nt",
+		"name": "Nanterre",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://catholique-nanterre.cef.fr/"
+	},
+	{
+		"id": "nv",
+		"name": "Nevers",
+		"region": "fr",
+		"sector": "Bourgogne",
+		"website": "http://www.nievre.catholique.fr/"
+	},
+	{
+		"id": "ny",
+		"name": "Nancy et Toul",
+		"region": "fr",
+		"sector": "Lorraine",
+		"website": "http://www.catholique-nancy.fr"
+	},
+	{
+		"id": "oc",
+		"name": "Ordinariat des catholiques des églises orientales",
+		"region": "fr",
+		"website": "http://www.paris.catholique.fr/-Ordinariat-des-catholiques-des-.html"
+	},
+	{
+		"id": "or",
+		"name": "Orléans",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://www.orleans.catholique.fr/"
+	},
+	{
+		"id": "pa",
+		"name": "Paris",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://www.paris.catholique.fr/"
+	},
+	{
+		"id": "pe",
+		"name": "Perpignan",
+		"region": "fr",
+		"sector": "LanguedocRoussillon",
+		"website": "http://www.perpignan.catholique.fr"
+	},
+	{
+		"id": "pi",
+		"name": "Saint Pierre et Miquelon",
+		"region": "fr",
+		"sector": "Tom",
+		"website": "http://www.cheznoo.net/paroissecatholiqueSPM/"
+	},
+	{
+		"id": "pm",
+		"name": "Pamiers",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://ariege-catholique.cef.fr/"
+	},
+	{
+		"id": "po",
+		"name": "Poitiers",
+		"region": "fr",
+		"sector": "PoitouCharentes",
+		"website": "http://www.poitiers-catholique.fr/"
+	},
+	{
+		"id": "pp",
+		"name": "Papeete (Tahiti)",
+		"region": "pf",
+		"sector": "Tom",
+		"website": "http://www.diocese-de-papeete.com/"
+	},
+	{
+		"id": "ps",
+		"name": "Périgueux - Sarlat",
+		"region": "fr",
+		"sector": "Aquitaine",
+		"website": "http://www.diocese24.fr/"
+	},
+	{
+		"id": "pt",
+		"name": "Pontoise",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://www.catholique95.com"
+	},
+	{
+		"id": "qu",
+		"name": "Quimper - Léon",
+		"region": "fr",
+		"sector": "Bretagne",
+		"website": "http://diocese-quimper.fr"
+	},
+	{
+		"id": "re",
+		"name": "Reims",
+		"region": "fr",
+		"sector": "ChampagneArdenne",
+		"website": "http://catholique-reims.cef.fr/"
+	},
+	{
+		"id": "rn",
+		"name": "Rennes",
+		"region": "fr",
+		"sector": "Bretagne",
+		"website": "http://www.rennes.catholique.fr/"
+	},
+	{
+		"id": "ro",
+		"name": "Rouen",
+		"region": "fr",
+		"sector": "HauteNormandie",
+		"website": "http://www.rouen.catholique.fr"
+	},
+	{
+		"id": "ru",
+		"name": "Saint-Denis de la Réunion",
+		"region": "re",
+		"sector": "Dom",
+		"website": "http://www.diocese-reunion.com/"
+	},
+	{
+		"id": "rv",
+		"name": "Rodez - Vabres",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://www.rodez.catholique.fr"
+	},
+	{
+		"id": "sf",
+		"name": "Saint-Flour",
+		"region": "fr",
+		"sector": "Auvergne",
+		"website": "http://catholique-saint-flour.cef.fr/"
+	},
+	{
+		"id": "sl",
+		"name": "Soissons - Laon - Saint-Quentin",
+		"region": "fr",
+		"sector": "Picardie",
+		"website": "http://soissons.catholique.fr/"
+	},
+	{
+		"id": "ss",
+		"name": "Sens & Auxerre",
+		"region": "fr",
+		"sector": "Bourgogne",
+		"website": "http://www.yonne.catholique.fr/"
+	},
+	{
+		"id": "st",
+		"name": "Strasbourg",
+		"region": "fr",
+		"sector": "Alsace",
+		"website": "http://www.diocese-alsace.fr/"
+	},
+	{
+		"id": "sz",
+		"name": "Séez",
+		"region": "fr",
+		"sector": "BasseNormandie",
+		"website": "http://diocesedeseez.cef.fr/"
+	},
+	{
+		"id": "ta",
+		"name": "Taiohae, île Marquises (Polynésie française)",
+		"region": "fr",
+		"sector": "Tom",
+		"website": "http://www.catholic.pf/"
+	},
+	{
+		"id": "test",
+		"name": "Network test",
+		"region": "fr"
+	},
+	{
+		"id": "tl",
+		"name": "Tarbes - Lourdes",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://catholique65.fr"
+	},
+	{
+		"id": "to",
+		"name": "Tours",
+		"region": "fr",
+		"sector": "Centre",
+		"website": "http://www.diocesedetours.catholique.fr"
+	},
+	{
+		"id": "tr",
+		"name": "Troyes",
+		"region": "fr",
+		"sector": "ChampagneArdenne",
+		"website": "http://catholique-troyes.cef.fr/"
+	},
+	{
+		"id": "ts",
+		"name": "Toulouse",
+		"region": "fr",
+		"sector": "MidiPyrenees",
+		"website": "http://toulouse.catholique.fr"
+	},
+	{
+		"id": "tu",
+		"name": "Tulle",
+		"region": "fr",
+		"sector": "Limousin",
+		"website": "http://www.correze.catholique.fr"
+	},
+	{
+		"id": "va",
+		"name": "Vannes",
+		"region": "fr",
+		"sector": "Bretagne",
+		"website": "http://www.vannes.catholique.fr/"
+	},
+	{
+		"id": "vd",
+		"name": "Verdun",
+		"region": "fr",
+		"sector": "Lorraine",
+		"website": "http://catholique-verdun.cef.fr/"
+	},
+	{
+		"id": "ve",
+		"name": "Versailles",
+		"region": "fr",
+		"sector": "IledeFrance",
+		"website": "http://catholique-versailles.cef.fr"
+	},
+	{
+		"id": "vl",
+		"name": "Valence",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://catholique-valence.cef.fr/"
+	},
+	{
+		"id": "vv",
+		"name": "Viviers",
+		"region": "fr",
+		"sector": "RhoneAlpes",
+		"website": "http://www.ardeche.catholique.fr"
+	},
+	{
+		"id": "wf",
+		"name": "Wallis et Futuna",
+		"region": "fr",
+		"sector": "Tom",
+		"website": "http://www.ddec.nc/diocese/"
+	}
+]

@@ -1,0 +1,1160 @@
+[
+	{
+		"id": "aa/13/vauvenargues",
+		"alias": "101110",
+		"parentId": "aa/",
+		"name": "Aix - Saint Jean Marie Vianney/ Saint Marc Jaumegarde / Vauvenargues",
+		"type": "Paroisse",
+		"responsible": "S.CABANAC",
+		"description": "<i><b>Téléphone </b></i>: 04 42 23 13 46<div><i><b>Web </b></i>:&nbsp;http://les3paroissesdelavallee@gmail.com</div><div><br></div><div><br></div>",
+		"address": {
+			"street": "94 avenue Fontenaille",
+			"zipCode": "13100",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5340153,
+				"longitude": 5.467018100000018,
+				"zoom": 15
+			}
+		},
+		"email": "les3paroissesdelavallee@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 23 13 46",
+		"url": "http://www.les3paroissesdelavallee.blogspot.fr/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/cathedrale",
+		"alias": "101014",
+		"parentId": "aa/pays-d-aix",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Aix - Saint Sauveur",
+		"type": "Paroisse",
+		"description": "<br>",
+		"address": {
+			"street": "34 Place des martyrs de la Résistance",
+			"zipCode": "13100",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5319447,
+				"longitude": 5.447427100000027,
+				"zoom": 15
+			}
+		},
+		"email": "secretariatcathedraleaix@hotmail.fr",
+		"networkId": "aa",
+		"phone": "04 42 23 45 65",
+		"url": "http://paroisses-aixarles.fr/aix-saintsauveur/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/notre-dame-de-l-arc",
+		"alias": "101068",
+		"parentId": "aa/",
+		"name": "Aix ND de l'Arc/ Saint André - Saint Jérôme",
+		"type": "Paroisse",
+		"responsible": "P. Pascal",
+		"description": " ",
+		"address": {
+			"street": "10 avenue de la Fourane",
+			"zipCode": "13090",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5388336,
+				"longitude": 5.40442680000001,
+				"zoom": 10
+			}
+		},
+		"email": "paroissenda@orange.fr",
+		"networkId": "aa",
+		"phone": "04-42-27-53-95",
+		"url": "http://www.paroissesaixsud.com/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/arles",
+		"alias": "101002",
+		"parentId": "aa/",
+		"name": "Arles",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "12 rue du cloître",
+			"zipCode": "13200",
+			"city": "ARLES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.6762005,
+				"longitude": 4.629083499999979,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.st.trophime@free.fr",
+		"networkId": "aa",
+		"phone": "04 90 96 07 38",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/chateauneuf-les-martigues-le-mede",
+		"alias": "101016",
+		"parentId": "aa/",
+		"name": "Chateauneuf-les-Martigues/La Mède",
+		"type": "Paroisse",
+		"responsible": "P. Benincasa",
+		"description": " ",
+		"address": {
+			"street": "",
+			"zipCode": "13220",
+			"city": "CHATEAUNEUF LES MARTIGUES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.38296,
+				"longitude": 5.164635999999973,
+				"zoom": 10
+			}
+		},
+		"networkId": "aa",
+		"phone": "04 42 79 88 28",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/chateauneuf-le-rouge",
+		"alias": "101118",
+		"parentId": "aa/nord-etoile",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Châteauneuf le Rouge",
+		"commonName": "Paroisse Saint Antoine l'Ermite",
+		"type": "Paroisse",
+		"responsible": "P. Bernard Maitte",
+		"description": "Châteauneuf-le-Rouge est une commune de 2053 habitants. L&#39;église paroissiale est au centre du village ; facile d&#39;accès et parkings à proximité. La communauté paroissiale sera heureuse de vous accueillir tout particulièrement lors de la messe le dimanche à 10.00 et pour toute demande pastorale et de célébration des sacrements. Le père Bernard Maitte et le diacre Michel Antoine sont au service de cette communauté paroissiale.<br><b>Visitez le site de la paroisse pour les dernières actualités, évènements, et prendre connaissances d&#39;éventuels changement d&#39;horaires: <br></b>www.eglisechateauneuf.wix.com/eglise-chateauneuf<br><br>",
+		"address": {
+			"street": "Place Auguste Baret",
+			"zipCode": "13790",
+			"city": "CHATEAUNEUF LE ROUGE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.489238,
+				"longitude": 5.567428999999947,
+				"zoom": 15
+			}
+		},
+		"email": "paroissec9@gmail.com",
+		"networkId": "aa",
+		"phone": "06 87 67 74 55",
+		"url": "http://www.eglisechateauneuf.wix.com/eglise-chateauneuf",
+		"picture": "http://lh3.googleusercontent.com/bWtU4IB8N71MhfXr1csGtDKrsHYgwibj8SKUBq2OwprZv1zBphFVR1sIMh2NGievvaCu-zVdRUr49Tf29DCT5LE",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/eguilles",
+		"alias": "101020",
+		"parentId": "aa/",
+		"name": "Eguilles",
+		"type": "Paroisse",
+		"responsible": "P. Xavier Géron",
+		"description": " ",
+		"address": {
+			"street": "place de la mairie",
+			"zipCode": "13510",
+			"city": "EGUILLES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.571953,
+				"longitude": 5.351891000000023,
+				"zoom": 15
+			}
+		},
+		"email": "xavier.geron@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 92 66 51",
+		"url": "http://paroisse-eguilles-celony.fr/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/fos-sur-mer",
+		"alias": "101027",
+		"parentId": "aa/",
+		"name": "Fos sur Mer",
+		"type": "Paroisse",
+		"responsible": "Père Jean-François NOËL",
+		"description": " ",
+		"address": {
+			"street": "3 PLACE DE L HOTEL DE VILLE",
+			"zipCode": "13270",
+			"city": "FOS SUR MER",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4368154,
+				"longitude": 4.946118200000001,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.fos@numericable.fr",
+		"networkId": "aa",
+		"phone": "04 42 05 01 29 ",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/la-roque-d-antheron",
+		"alias": "101038",
+		"parentId": "aa/",
+		"name": "La Roque d'Antheron",
+		"type": "Paroisse",
+		"responsible": "P. BERT ALFARO",
+		"description": " ",
+		"address": {
+			"street": "5 rue Jeanne d'Arc",
+			"zipCode": "13640",
+			"city": "LA ROQUE D'ANTHERON",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.7160257,
+				"longitude": 5.310719800000015,
+				"zoom": 15
+			}
+		},
+		"email": "mba.etc.etc@gmail.com",
+		"networkId": "aa",
+		"phone": "06 08 02 66 59 ",
+		"url": "http://www.nosparoisses.com",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/la-gavotte-les-cadeneaux",
+		"alias": "101037",
+		"parentId": "aa/nord-etoile",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Les Pennes Mirabeau/Les Cadeneaux/La Gavotte",
+		"commonName": "Paroisse du Christ-Roi",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "1 chemin des fraises, La Gavotte",
+			"zipCode": "13170",
+			"city": "LES PENNES MIRABEAU",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.3848887,
+				"longitude": 5.345850899999959,
+				"zoom": 15
+			}
+		},
+		"email": "r.aliger@orange.fr",
+		"networkId": "aa",
+		"phone": "04 91 51 00 13",
+		"url": "https://paroissedespennesmirabeau.wordpress.com/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/les-saintes-maries-de-la-mer",
+		"alias": "101053",
+		"parentId": "aa/",
+		"name": "Les Saintes Maries de la Mer",
+		"type": "Paroisse",
+		"responsible": "P. Prunier",
+		"description": " ",
+		"address": {
+			"street": "Place Jean XXIII",
+			"zipCode": "13460",
+			"city": "SAINTES MARIES DE LA MER",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.453241,
+				"longitude": 4.429074000000014,
+				"zoom": 8
+			}
+		},
+		"email": "contact@sanctuaire-des-saintesmaries.fr",
+		"networkId": "aa",
+		"phone": "04 90 97 80 25",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/marignane",
+		"alias": "101057",
+		"parentId": "aa/",
+		"name": "Marignane - Saint Victoret",
+		"type": "Paroisse",
+		"responsible": "P. de FLEURIAN",
+		"description": " ",
+		"address": {
+			"street": "5 rue de l'église",
+			"zipCode": "13700",
+			"city": "MARIGNANE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4212739,
+				"longitude": 5.218332000000032,
+				"zoom": 10
+			}
+		},
+		"email": "paroissemarignane@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 88 60 69",
+		"url": "http://paroisses-aixarles.fr/marignane/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/martigues",
+		"alias": "101058",
+		"parentId": "aa/",
+		"name": "Martigues",
+		"type": "Paroisse",
+		"responsible": "P. DELABRE",
+		"description": " ",
+		"address": {
+			"street": "1 quai Marceau",
+			"zipCode": "13500",
+			"city": "Martigues",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4052969,
+				"longitude": 5.054904099999931,
+				"zoom": 16
+			}
+		},
+		"email": "accueilparoisse.m@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 42 10 65",
+		"url": "http://www.paroissedemartigues.com",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/orgon",
+		"alias": "101070",
+		"parentId": "aa/",
+		"name": "Orgon",
+		"type": "Paroisse",
+		"responsible": "P. ROLLAND",
+		"description": " ",
+		"address": {
+			"street": "9 chemin de ND de Beauregard",
+			"zipCode": "13660",
+			"city": "ORGON",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.7858826,
+				"longitude": 5.037516299999993,
+				"zoom": 15
+			}
+		},
+		"networkId": "aa",
+		"phone": "04 90 73 01 28",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/paroisse-vitrolles",
+		"alias": "13465q",
+		"parentId": "aa/",
+		"name": "Paroisse VITROLLES",
+		"type": "Paroisse",
+		"description": "<br>",
+		"address": {
+			"street": "111 avenue Jean Monnet ",
+			"zipCode": "13127",
+			"city": "VITROLLES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4270623,
+				"longitude": 5.278008399999976,
+				"zoom": 15
+			}
+		},
+		"networkId": "aa",
+		"phone": "04 42 89 32 14",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/mallemort",
+		"alias": "101056",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Alleins/Charleval/Mallemort/Vernègues",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "14 avenue Victor Hugo",
+			"zipCode": "13370",
+			"city": "MALLEMORT",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.7293503,
+				"longitude": 5.179406100000051,
+				"zoom": 15
+			}
+		},
+		"email": "pfabrice2001@gmail.com",
+		"networkId": "aa",
+		"phone": "06 87 80 40 85",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/berre-l-etang",
+		"alias": "101007",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Berre/Rognac",
+		"type": "Paroisse",
+		"responsible": "P. Régis Curral",
+		"description": " ",
+		"address": {
+			"street": "2 rue de l'église",
+			"zipCode": "13130",
+			"city": "BERRE L'ETANG",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4757729,
+				"longitude": 5.167308999999932,
+				"zoom": 10
+			}
+		},
+		"email": "paroissedeberreletang@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 85 41 18",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/chateaurenard",
+		"alias": "101017",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Châteaurenard/Eyragues/Noves",
+		"type": "Unité pastorale",
+		"responsible": "P. Maurice ROLLAND",
+		"description": " ",
+		"address": {
+			"street": "9 Boulevard du 4 Septembre",
+			"zipCode": "13160",
+			"city": "CHATEAURENARD",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.881714,
+				"longitude": 4.854939400000035,
+				"zoom": 15
+			}
+		},
+		"email": "paroisseschanovey@gmail.com",
+		"networkId": "aa",
+		"phone": "04 90 94 13 45",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/gignac-le-nerthe",
+		"alias": "101030",
+		"parentId": "aa/13/gignac-le-nerthe",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Paroisses regroupées Gignac / Le Rove / Ensuès ",
+		"commonName": "Gignac la Nerthe, Le Rove  et Ensuès La Redonne",
+		"type": "Paroisse",
+		"responsible": "P. Henri DE MENOU",
+		"description": "<div><i><b>Mail</b></i> :&nbsp;<a href=\"mailto:gignac.rove.ensues@outlook.fr\" target=\"_blank\" style=\"color:rgb(17, 85, 204);font-family:&#39;serif;font-size:16px;line-height:normal;widows:1;background-color:rgb(255, 255, 255);\">gignac.rove.ensues@outlook.fr</a></div>",
+		"address": {
+			"street": "22 avenue Pasteur",
+			"zipCode": "13180",
+			"city": "GIGNAC LA NERTHE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.3933015,
+				"longitude": 5.235930300000064,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.gignac.lerove@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 88 46 19",
+		"url": "http://www.paroisses-gignac-lerove-ensues.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/le-tholonet",
+		"alias": "101049",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Le Tholonet/ Beaurecueil / Saint Antonin",
+		"type": "Paroisse",
+		"description": "Père Bernard Maitte : bmaitte@gmail.com ",
+		"address": {
+			"street": "3429 route Paul Cézanne",
+			"zipCode": "13100",
+			"city": "LE THOLONET",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5408225,
+				"longitude": 5.445793900000012,
+				"zoom": 13
+			}
+		},
+		"email": "chretiensstevictoire@orange.fr",
+		"networkId": "aa",
+		"phone": "04 42 66 91 62",
+		"url": "http://paroisses-aixarles.fr/letholonet-beaurecueil-saintantonin/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/les-milles",
+		"alias": "101051",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Les Milles/Luynes/Duranne",
+		"type": "Paroisse",
+		"responsible": "Père Henri de MENOU",
+		"description": " ",
+		"address": {
+			"street": "12 RUE DE L EGLISE",
+			"zipCode": "13290",
+			"city": "LES MILLES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.50220239999999,
+				"longitude": 5.388303199999996,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.luynes.milles.duranne@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 24 21 61",
+		"url": "http://www.paroisses-luynes-milles-duranne.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/miramas",
+		"alias": "101063",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Miramas/ Miramas le Vieux / Entressen",
+		"type": "Unité pastorale",
+		"responsible": "P. Xavier Michaux",
+		"description": " ",
+		"address": {
+			"street": "10 rue Sauvaire",
+			"zipCode": "13140",
+			"city": "MIRAMAS",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.588896,
+				"longitude": 5.002136000000064,
+				"zoom": 10
+			}
+		},
+		"email": "paroissemiramas@orange.fr",
+		"networkId": "aa",
+		"phone": "04 90 58 22 74",
+		"url": "http://paroisse-miramas.com",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/port-saint-louis-du-rhone",
+		"alias": "101076",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Port Saint Louis du Rhone/ Salin de Giraud / Le Sambuc",
+		"type": "Paroisse",
+		"responsible": "P. ASSALE",
+		"description": " ",
+		"address": {
+			"street": "1 avenue de la république",
+			"zipCode": "13230",
+			"city": "PORT SAINT LOUIS DU RHONE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.3875599,
+				"longitude": 4.804360200000019,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.psl@orange.fr",
+		"networkId": "aa",
+		"phone": "04 42 86 06 83",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/pelissanne",
+		"alias": "101071",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Pélissanne/Lançon/Aurons/La Barben",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "17 rue de la liberté",
+			"zipCode": "13330",
+			"city": "PELISSANNE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.631049,
+				"longitude": 5.150567000000024,
+				"zoom": 11
+			}
+		},
+		"networkId": "aa",
+		"phone": "04 90 55 02 63",
+		"url": "http://paroisses-aixarles.fr/pabl/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-chamas",
+		"alias": "101089",
+		"parentId": "aa/",
+		"name": "Paroisses regroupées Saint Chamas / Cornillon Confoux",
+		"type": "Paroisse",
+		"responsible": "P. Jean-Michel FIN",
+		"description": " ",
+		"address": {
+			"street": "8 rue émile Fabre",
+			"zipCode": "13250",
+			"city": "SAINT CHAMAS",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5495248,
+				"longitude": 5.036035800000036,
+				"zoom": 15
+			}
+		},
+		"email": "paroissesaintchamas@outlook.fr",
+		"networkId": "aa",
+		"phone": "04 90 50 94 25",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/port-de-bouc",
+		"alias": "101075",
+		"parentId": "aa/ouest-etang-de-berre",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Port de Bouc",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "",
+			"zipCode": "13110",
+			"city": "PORT DE BOUC",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4279284,
+				"longitude": 4.992247399999997,
+				"zoom": 11
+			}
+		},
+		"email": "accueilparoisse.pdb@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 06 22 34",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/puyricard",
+		"alias": "101079",
+		"parentId": "aa/",
+		"name": "Puyricard - Venelles",
+		"type": "Unité pastorale",
+		"responsible": "P. Gallay",
+		"description": " ",
+		"address": {
+			"street": "35 avenue de la Touloubre",
+			"zipCode": "13540",
+			"city": "PUYRICARD",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.582261,
+				"longitude": 5.421321400000011,
+				"zoom": 15
+			}
+		},
+		"networkId": "aa",
+		"phone": "04 42 92 10 04",
+		"url": "http://cathovenelles.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-francois-d-assise",
+		"alias": "101092",
+		"parentId": "aa/",
+		"name": "Saint Francois d'Assise",
+		"type": "Paroisse",
+		"responsible": "P. Wauquier",
+		"description": " ",
+		"address": {
+			"street": "5 bd des 2 Ormes, le Jas de Bouffan",
+			"zipCode": "13090",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5388336,
+				"longitude": 5.40442680000001,
+				"zoom": 10
+			}
+		},
+		"email": "sfaaix@gmail.com",
+		"networkId": "aa",
+		"phone": "0442201551",
+		"url": "http://saintfrancoisassiseaix.org",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-jean-de-malte",
+		"alias": "101093",
+		"parentId": "aa/",
+		"name": "Saint Jean de Malte",
+		"type": "Paroisse",
+		"responsible": "Frère Daniel Bourgeois",
+		"description": " ",
+		"address": {
+			"street": "24 rue d'Italie",
+			"zipCode": "13100",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5256816,
+				"longitude": 5.453453599999989,
+				"zoom": 15
+			}
+		},
+		"email": "paroissesaintjeandemalte@gmail.com",
+		"networkId": "aa",
+		"phone": "0442382570",
+		"url": "http://moinesdiocesains-aix.cef.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-paul",
+		"alias": "101098",
+		"parentId": "aa/",
+		"name": "Saint Paul",
+		"type": "Paroisse",
+		"responsible": "P. Veyrune",
+		"description": " ",
+		"address": {
+			"street": "27 avenue de l'Europe",
+			"zipCode": "13100",
+			"city": "AIX EN PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5238248,
+				"longitude": 5.434877400000005,
+				"zoom": 15
+			}
+		},
+		"email": "saintpaulaix@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 59 59 09",
+		"url": "http://paroisses-aixarles.fr/aix-saintpaul/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/septemes-les-vallons",
+		"alias": "101107",
+		"parentId": "aa/nord-etoile",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Septemes les Vallons",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "",
+			"zipCode": "13240",
+			"city": "SEPTEMES LES VALLONS",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.3907153,
+				"longitude": 5.388720000000035,
+				"zoom": 10
+			}
+		},
+		"email": "paroisse.steanne@hotmail.fr",
+		"networkId": "aa",
+		"phone": "0491511167",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/simiane-collongue",
+		"alias": "101108",
+		"parentId": "aa/",
+		"name": "Simiane Collongues",
+		"type": "Paroisse",
+		"responsible": "Père Del Prete",
+		"description": " ",
+		"address": {
+			"street": "6 route de Mimet",
+			"zipCode": "13109",
+			"city": "Simiane Collongues",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4291806,
+				"longitude": 5.43852430000004,
+				"zoom": 15
+			}
+		},
+		"email": "paroisse.simiane@free.fr",
+		"networkId": "aa",
+		"phone": "0442226233",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/biver",
+		"alias": "101008",
+		"parentId": "aa/unite-pastorale-saint-michel",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "UP étoile Saint-Michel",
+		"type": "Paroisse",
+		"description": " ",
+		"address": {
+			"street": "3 bd Bontemps",
+			"zipCode": "13120",
+			"city": "GARDANNE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.453692,
+				"longitude": 5.468252799999959,
+				"zoom": 15
+			}
+		},
+		"email": "up.etoilesaintmichel@orange.fr",
+		"networkId": "aa",
+		"phone": "04 42 58 41 60",
+		"url": "http://etoilesaintmichel.cef.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/istres",
+		"alias": "101033",
+		"parentId": "aa/",
+		"name": "Unité Paroisse Saint Blaise",
+		"type": "Paroisse",
+		"responsible": "P. Jean-François NOEL",
+		"description": " ",
+		"address": {
+			"street": "33 bvd Victor Hugo",
+			"zipCode": "13800",
+			"city": "ISTRES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5123586,
+				"longitude": 4.989757300000065,
+				"zoom": 15
+			}
+		},
+		"email": "jeanfrancois.noel@wanadoo.fr",
+		"networkId": "aa",
+		"phone": "04.42.55.00.72",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/peyrolles",
+		"alias": "101073",
+		"parentId": "aa/",
+		"communitiesLinkId": [
+			"aa/"
+		],
+		"name": "Unité Pastorale Aix- Val de Durance",
+		"type": "Unité pastorale",
+		"responsible": "Père Michel Isoard",
+		"description": "<span style=\"color:rgb(17, 17, 17);font-family:Lato, sans-serif, arial, helvetica, sans-serif;font-size:14px;line-height:21px;background-color:rgb(255, 255, 255);\">L&#39;unité pastorale Aix Val de Durance (UPAVD) est constituée des différentes paroisses, le long de cette rivière: Le Puy Sainte Réparade, Jouques, Meyrargues, Peyrolles en Provence, Saint Estève-Janson, Saint Paul lez Durance.</span><div><font face=\"Lato, sans-serif, arial, helvetica, sans-serif\" color=\"#111111\"><span style=\"font-size:14px;line-height:21px;\"><br></span></font><div><span style=\"background-color:rgb(255, 255, 255);font-size:14px;line-height:21px;\"><font face=\"Lato, sans-serif, arial, helvetica, sans-serif\" color=\"#111111\"><div>Le secrétariat des paroisses de l&#39;Unité Pastorale Aix val de Durance est ouvert du lundi au vendredi de 9h à 12h &nbsp;et le jeudi de 14h à 17h. &nbsp; Tél : 04 42 57 80 40</div><div><br></div><div>Pour les obsèques en dehors de ces horaires appelez le : 04 42 61 95 32</div></font></span></div></div>",
+		"address": {
+			"street": "17 rue de l'église",
+			"zipCode": "13860",
+			"city": "Peyrolles",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.6477978,
+				"longitude": 5.582685800000036,
+				"zoom": 15
+			}
+		},
+		"email": "upavd@wanadoo.fr",
+		"networkId": "aa",
+		"phone": "0442578040",
+		"url": "http://www.upavd.fr",
+		"picture": "http://lh3.googleusercontent.com/mPyFN8p2FD_Y2R45qI5cnRRyF_TqY3OkXLcpcoq5e_YG7-e6v-uiW065aHHxzg_Go2YKdop0kudRfNFqmnzCM38",
+		"communityType": "PARISH",
+		"tags": [
+			" Jouques",
+			" Meyrargues",
+			" Peyrolles",
+			" Saint-Canadet",
+			" Saint-Estève-Janson",
+			"Saint-Paul-lez-Durance",
+			" Le-Puy-Sainte-Réparade"
+		]
+	},
+	{
+		"id": "aa/13/maussane-les-alpilles",
+		"alias": "101061",
+		"parentId": "aa/",
+		"name": "Unité pastorale - Vallée des Baux",
+		"type": "Unité pastorale",
+		"responsible": "Père Joseph Vettoonickal",
+		"description": "<br><div><i><b>Web </b></i>:<a href=\"http://paroisses-aixarles.fr/valleedesbaux/\"> http://paroisses-aixarles.fr/valleedesbaux/</a>\n\n</div>",
+		"address": {
+			"street": "29 place Laugier de Monblan",
+			"zipCode": "13520",
+			"city": "MAUSSANE LES ALPILLES",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.721315,
+				"longitude": 4.805135299999961,
+				"zoom": 15
+			}
+		},
+		"email": "updesalpilles@gmail.com",
+		"networkId": "aa",
+		"phone": "04.90.54.30.23",
+		"url": "http://paroisses-aixarles.fr/valleedesbaux/",
+		"picture": "http://lh3.googleusercontent.com/W3dVdOvLPXiTdJrc5-rcVyVtCSqVV8Qex8gpJuKalHvfLPcxBa_ClWBAVWZo_gVpJa8fMSVsQaN1YfHYybU0NQA",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/peynier",
+		"alias": "101072",
+		"parentId": "aa/",
+		"name": "Unité pastorale Auréliens - Sainte Victoire",
+		"commonName": "Trets, Rousset, Peynier, Puyloubier",
+		"type": "Unité pastorale",
+		"responsible": "Michel Pierre Morin",
+		"description": "<p style=\"margin-top:0px;line-height:28px;font-family:&#39;serif;color:rgb(90, 85, 78);font-size:14px;text-align:justify;background-color:rgb(255, 255, 255);\"><span style=\"font-family:verdana, geneva, sans-serif;\"><span style=\"color:rgb(165, 42, 42);\"><span style=\"font-size:16px;\"><strong>Equipe de conduite pastorale&nbsp;:</strong></span></span></span></p><p style=\"margin-top:0px;line-height:28px;font-family:&#39;serif;color:rgb(90, 85, 78);font-size:14px;background-color:rgb(255, 255, 255);\" align=\"center\"><strong>Père Michel-Pierre Morin, et Corinne Luciani <br></strong></p><p style=\"margin-top:0px;line-height:28px;font-family:&#39;serif;color:rgb(90, 85, 78);font-size:14px;background-color:rgb(255, 255, 255);\" align=\"center\"><b>Permanence du mardi au samedi de 09h30 à 12h00</b></p><span style=\"color:rgb(90, 85, 78);font-size:14px;text-align:justify;font-family:verdana, geneva, sans-serif;background-color:rgb(255, 255, 255);\">&nbsp;&nbsp;</span><strong style=\"color:rgb(165, 42, 42);font-family:verdana, geneva, sans-serif;line-height:28px;\"><font size=\"5\">Messe tous les dimanches :</font></strong><div><strong style=\"color:rgb(165, 42, 42);font-family:verdana, geneva, sans-serif;font-size:16px;line-height:28px;\">10h30 église de Trets</strong></div>",
+		"address": {
+			"street": "1 avenue pasteur",
+			"zipCode": "13530",
+			"city": "TRETS",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.4462648,
+				"longitude": 5.686675199999968,
+				"zoom": 15
+			}
+		},
+		"email": "up.saintevictoire@gmail.com",
+		"networkId": "aa",
+		"phone": "04 42 29 20 11",
+		"url": "http://www.catholiques-trets-sainte-victoire.fr/",
+		"picture": "http://lh3.googleusercontent.com/IHF_T8m19gn9ld-Sqhu4j9qegH_PXb1rXV_YVYzzqcC0pZcknsQIIQQgs-4_ivS59RRInW7pqL6NOVpeKTLb8lQ",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/lamanon",
+		"alias": "101040",
+		"parentId": "aa/",
+		"name": "Unité pastorale ELSA",
+		"type": "Paroisse",
+		"responsible": "P. Christophe NOWAK",
+		"description": " ",
+		"address": {
+			"street": "Place de l'église",
+			"zipCode": "13113",
+			"city": "LAMANON",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.701368,
+				"longitude": 5.084911000000034,
+				"zoom": 11
+			}
+		},
+		"email": "paroisse.elsa@free.fr",
+		"networkId": "aa",
+		"phone": "04 90 59 50 61",
+		"url": "http://paroisseelsa.free.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/lambesc",
+		"alias": "101041",
+		"parentId": "aa/",
+		"name": "Unité pastorale Les Trois Pierres",
+		"type": "Unité pastorale",
+		"responsible": "P Jean-Luc Michel",
+		"description": " ",
+		"address": {
+			"street": "40 rue grande",
+			"zipCode": "13410",
+			"city": "LAMBESC",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.654474,
+				"longitude": 5.26106870000001,
+				"zoom": 15
+			}
+		},
+		"email": "secretariat.up3pierres@orange.fr",
+		"networkId": "aa",
+		"phone": "04 42 57 01 01",
+		"url": "http://www.lestroispierres.org",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/sausset-les-pins",
+		"alias": "101120",
+		"parentId": "aa/",
+		"name": "Unité pastorale ND de la côte bleue",
+		"type": "Unité pastorale",
+		"responsible": "P. Demuynck",
+		"description": "email du curé :&nbsp;<a href=\"mailto:philippe-arthur@laposte.net\">philippe-arthur@laposte.net</a>",
+		"address": {
+			"street": "Maison Ste Famille - 20 avenue Fouque",
+			"zipCode": "13960",
+			"city": "SAUSSET LES PINS",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.3312401,
+				"longitude": 5.1097125000000005,
+				"zoom": 15
+			}
+		},
+		"email": "unitepastoralecb@orange.fr",
+		"networkId": "aa",
+		"phone": "04 42 44 68 36",
+		"url": "http://paroisses-aixarles.fr/up-cote-bleue/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/coudoux",
+		"alias": "101019",
+		"parentId": "aa/",
+		"name": "Unité pastorale Roquepertuse",
+		"type": "Unité pastorale",
+		"responsible": "P. MICHAUD",
+		"description": " ",
+		"address": {
+			"street": "2 rue des 4 termes",
+			"zipCode": "13111",
+			"city": "COUDOUX",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.5589299,
+				"longitude": 5.249921200000017,
+				"zoom": 15
+			}
+		},
+		"email": "adcoudoux@wanadoo.fr",
+		"networkId": "aa",
+		"phone": "04.42.52.00.61",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/graveson",
+		"alias": "101032",
+		"parentId": "aa/",
+		"name": "Unité pastorale Saint Michel",
+		"type": "Paroisse",
+		"description": "Secrétariat de l&#39;Unité Pastorale <div>17, Rue de la Poste 13690 Graveson<br>Permanence du lundi au vendredi de 9h00 à 12h00<br>Secrétariat du mardi au jeudi de 14h00 à 18h00</div>",
+		"address": {
+			"street": "17, Rue de la Poste",
+			"zipCode": "13690",
+			"city": "GRAVESON",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.8519629,
+				"longitude": 4.773358799999983,
+				"zoom": 15
+			}
+		},
+		"email": "saintmichel.paroisse@gmail.com",
+		"networkId": "aa",
+		"phone": "04 90 95 52 29",
+		"url": "http://upsaintmichel.fr/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/lansac",
+		"alias": "101043",
+		"parentId": "aa/",
+		"name": "Unité pastorale Sainte Marthe",
+		"type": "Paroisse",
+		"responsible": "P. Michel Savalli",
+		"description": " ",
+		"address": {
+			"street": "Place Concorde",
+			"zipCode": "13150",
+			"city": "TARASCON",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.80604400000001,
+				"longitude": 4.657519999999977,
+				"zoom": 9
+			}
+		},
+		"email": "paroisse.tarascon@neuf.fr",
+		"networkId": "aa",
+		"phone": "04 90 91 09 50",
+		"url": "http://paroisse-de-tarascon.com",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/salon-de-provence",
+		"alias": "101105",
+		"parentId": "aa/",
+		"name": "Unité pastorale Salon / Grans",
+		"type": "Unité pastorale",
+		"responsible": "P. Brice DE ROUX",
+		"description": " ",
+		"address": {
+			"street": "Square Jean XXIII",
+			"zipCode": "13300",
+			"city": "SALON DE PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.6431274,
+				"longitude": 5.097209300000031,
+				"zoom": 15
+			}
+		},
+		"email": "paroissesalon13@gmail.com",
+		"networkId": "aa",
+		"phone": "04 90 56 26 15",
+		"url": "http://paroissesalongrans.fr/",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-remy-de-provence",
+		"alias": "101101",
+		"parentId": "aa/",
+		"name": "Unité pastorale de Saint Remy de Provence",
+		"type": "Paroisse",
+		"responsible": "P. Marc Diatta",
+		"description": " ",
+		"address": {
+			"street": "2 rue Daniel Millaud",
+			"zipCode": "13210",
+			"city": "SAINT REMY DE PROVENCE",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.7887476,
+				"longitude": 4.830978400000049,
+				"zoom": 15
+			}
+		},
+		"email": "upsaintremy@free.fr",
+		"networkId": "aa",
+		"phone": "04 90 92 10 51",
+		"url": "http://upsaintremy.free.fr",
+		"communityType": "PARISH"
+	},
+	{
+		"id": "aa/13/saint-martin-de-crau",
+		"alias": "101096",
+		"parentId": "aa/",
+		"name": "Unité pastorale de la Crau",
+		"type": "Unité pastorale",
+		"responsible": "P. Sanchez",
+		"description": " ",
+		"address": {
+			"street": "4 rue Léo Lellée",
+			"zipCode": "13310",
+			"city": "SAINT MARTIN DE CRAU",
+			"region": "fr",
+			"latLng": {
+				"latitude": 43.638628,
+				"longitude": 4.812106999999969,
+				"zoom": 9
+			}
+		},
+		"email": "updelacrau@sfr.fr",
+		"networkId": "aa",
+		"phone": "04 90 47 39 94",
+		"communityType": "PARISH"
+	}
+]
