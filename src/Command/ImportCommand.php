@@ -10,6 +10,7 @@ use App\Entity\Time;
 use Doctrine\Common\Persistence\ObjectManager;
 use Geocoder\ProviderAggregator;
 use GuzzleHttp\Client;
+use libphonenumber\PhoneNumberUtil;
 use Symfony\Bundle\FrameworkBundle\Command\ContainerAwareCommand;
 use Symfony\Component\Stopwatch\Stopwatch;
 
@@ -24,6 +25,7 @@ abstract class ImportCommand extends ContainerAwareCommand
     protected $provider;
     protected $stopwatch;
     protected $timers = [];
+    protected $phoneUtil;
 
     const BASE_MESSE_INFO_URL = 'https://www.messes.info/';
     const MESSE_INFO_QUERY_PARAM = ['userkey'=>'test', 'format'=>'json'];
@@ -45,6 +47,7 @@ abstract class ImportCommand extends ContainerAwareCommand
         $this->timeRepository = $this->em->getRepository(Time::class);
         $this->provider = $provider;
         $this->stopwatch = $stopwatch;
+        $this->phoneUtil = PhoneNumberUtil::getInstance();
 
         // this is required due to parent constructor, which sets up name
         parent::__construct();
