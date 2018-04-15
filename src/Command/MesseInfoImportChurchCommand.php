@@ -31,10 +31,10 @@ class MesseInfoImportChurchCommand extends ImportCommand
             $io->note($parish->name);
             $this->stopwatch->start($parish->name);
 
-            $egliseArray = $this->getChurch($parish->code);
-            $io->progressStart(count($egliseArray));
+            $eglises = $this->getChurch($parish->code);
+            $io->progressStart(count($eglises));
 
-            foreach ($egliseArray as $eglise) {
+            foreach ($eglises as $eglise) {
                 $dbResult = $this->churchRepository->findOneByMesseInfoId($eglise['id']);
                 if ($dbResult) {
                     $io->progressAdvance();

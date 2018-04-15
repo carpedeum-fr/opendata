@@ -21,7 +21,6 @@ class MesseInfoImportTimetableCommand extends ImportCommand
         ;
     }
 
-
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $io = new SymfonyStyle($input, $output);
@@ -32,10 +31,10 @@ class MesseInfoImportTimetableCommand extends ImportCommand
         foreach ($places as $place) {
             $io->note($place->name);
             $this->stopwatch->start($place->name);
-            $timetableArray = $this->getTime($place->messeInfoId);
-            $io->progressStart(count($timetableArray));
+            $timetables = $this->getTime($place->messeInfoId);
+            $io->progressStart(count($timetables));
 
-            foreach ($timetableArray as $horaire) {
+            foreach ($timetables as $horaire) {
                 $time = $this->timeRepository->findOneByMesseInfoId($horaire['id']);
                 if (!$time) {
                     $time = new Time();

@@ -48,10 +48,10 @@ class MesseInfoImportParishCommand extends ImportCommand
         {
             $io->note($diocese->name);
             $this->stopwatch->start($diocese->name);
-            $paroisseArray = $this->getParish($diocese->code);
-            $io->progressStart(count($paroisseArray));
+            $paroisses = $this->getParish($diocese->code);
+            $io->progressStart(count($paroisses));
 
-            foreach ($paroisseArray as $paroisse) {
+            foreach ($paroisses as $paroisse) {
                 if (!array_key_exists('alias', $paroisse)) {
                     $output->write('!');
                     continue;
